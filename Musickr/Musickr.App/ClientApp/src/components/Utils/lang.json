@@ -1,0 +1,18 @@
+{
+  "en": {
+    "musickr": "Musickr",
+    "plays": "plays",
+    "likes": "likes",
+    "reposts": "reposts",
+    "comments": "comments",
+    "export": "Export Playlist"
+  },
+  "fr": {
+    "musickr": "Musiqueur",
+    "plays": "écoutes",
+    "likes": "mentions j'aime",
+    "reposts": "reposts",
+    "comments": "commentaires",
+    "export": "Exporter la Playlist"
+  }
+}
