@@ -33,146 +33,62 @@ import {AutoComplete, AutoCompleteInput, AutoCompleteItem, AutoCompleteList} fro
 import {MdPlace, MdSettings} from "react-icons/md";
 import {createSearchParams, useNavigate} from "react-router-dom";
 import PageContent from "../../Utils/PageContent";
-import {stringify} from "../../Utils/DisplayTools";
-
-
-type SocialsProps = {
-  label:   string,
-  number?: number,
-  icon:    ComponentWithAs<"svg", IconProps>
-}
-
-const Socials = ({label, number, icon}: SocialsProps) => {
-  return (
-    number?
-      <Tooltip label={label}>
-        <Tag>
-          <TagRightIcon as={icon}/>
-          <TagLabel>{stringify(number)}</TagLabel>
-        </Tag>
-      </Tooltip>
-    :
-      <></>
-  )
-}
-
-
+import Socials from "./Socials";
+import Export from "./Export";
+import Music from "./Music";
 
 type PlaylistProps = {
-  l:string;
+  defaultValue?: string;
+  onChange: (value: string) => void;
+  lang: {
+    [key: string]: string
+  };
   playlist: {
-    image?: string,     // link to the music image (should be a square picture)
-    link?: string,      // link to the music page
-    title: string,
-    artist: string,
-    duration?: number,  // duration already converted to text
-    plays?: number,
-    likes?: number,
-    reposts?: number,
+    image?:    string, // link to the music image (should be a square picture)
+    link?:     string, // link to the music page
+    title:     string,
+    artist:    string,
+    duration?: number, // duration already converted to text
+    plays?:    number,
+    likes?:    number,
+    reposts?:  number,
     comments?: number,
-    tags?: string[]     // genre tags
+    tags?:     string[]// genre tags
   }[]
 };
 
-// 380 - 75
-const Playlist = ({l="en",playlist}: PlaylistProps) => {
+const Playlist = ({defaultValue="", onChange, lang, playlist}: PlaylistProps) => {
 
-  const navigate = useNavigate();
-  const {isOpen, onClose, onOpen} = useDisclosure();
 
-  const onSearchBarChange = useCallback((value: string) => {
-      const params = {place: value};
-      navigate({
-        pathname: "/player",
-        search: `?${createSearchParams(params)}`
-      })
+  const [searchContent, setSearchContent] = useState(defaultValue);
+  const [searchContentDebounced, setSearchContentDebounced] = useState("");
+
+  const handleInput = (changeEvent: ChangeEvent<HTMLInputElement>) => {
+    setSearchContent(changeEvent.target.value);
+  };
+
+  const [, cancel] = useDebounce(
+    () => {
+      setSearchContentDebounced(searchContent);
     },
-    [navigate]);
+    500,
+    [searchContent]
+  );
 
-  const elementRef = useRef();
-  const dimensions = useDimensions(elementRef);
-
-
-  let lang = require(`../../Utils/lang.json`)[l];
+  const { isLoading, data } = useGetUsersAndPlaces(searchContentDebounced);
   
   return (
-    <VStack
-      w="100%"
-      spacing="0"
-      p="5%"
-    >
-
-      <Heading size="xl">
-        Musickr
-      </Heading>
-
-      <SearchBar onChange={onSearchBarChange}/>
-
+    <VStack w="100%" minW="300px" spacing="0" p="5%">
+      <Heading variant='playlist'>{lang.musickr}</Heading>
+      <SearchBar onChange={onChange} defaultValue={defaultValue}/> {/* need to modify this component to allow styling */}
       <Divider/>
-
-      <VStack
-        w="100%"
-        spacing="0"
-      >
-
+      <VStack w="100%" spacing="0">
         {playlist.map((music) => (
-
-          <Center w='100%' aspectRatio="5/1" bg={"blue.100"}>
-
-            <HStack h='76%' w='96.2%' spacing="0" bg={"red.100"}>
-              <Box
-                h='100%'
-                aspectRatio="1"
-                _hover={{
-                  aspectRatio: "1.2/1"
-                }}
-              >
-                <Image
-                  h="100%"
-                  aspectRatio="1"
-                  left="0px"
-                  _hover={{
-                    left: "50px"
-                    //animationDuration:"4s"
-                  }}
-                  src='https://images.freeimages.com/fic/images/icons/2315/default_icon/256/media_vinyl_78.png'
-                />
-
-                <Image
-                  h="100%"
-                  aspectRatio="1"
-                  position="relative"
-                  top="-100%"
-                  src={music.image ? music.image : 'https://www.claudejardin.com/wp-content/themes/soundcheck/images/default-album-artwork.png'}
-                />
-              </Box>
-              <VStack h="100%">
-                <Text h="3%">{music.title}</Text>
-                <Text h="3%">{music.artist}</Text>
-                <HStack h="30%">
-                  <Socials label={music.plays+" "+lang.plays} icon={ViewIcon} number={music.plays}/>
-                  <Socials label={music.likes+" "+lang.likes} icon={StarIcon} number={music.likes}/>
-                  <Socials label={music.reposts+" "+lang.reposts} icon={RepeatIcon} number={music.reposts}/>
-                  <Socials label={music.comments+" "+lang.comments} icon={ChatIcon} number={music.comments}/>
-                </HStack>
-              </VStack>
-            </HStack>
-
-          </Center>
+          <Music lang={lang} music={music}/>
         ))}
-
       </VStack>
-
       <Divider/>
-
-      <Button
-        rightIcon={<ExternalLinkIcon/>}
-        colorScheme='teal'
-        variant='outline'
-      >
-        Export Playlist
-      </Button>
-
+      <Export label={lang.export}/>
     </VStack>
   );
 };

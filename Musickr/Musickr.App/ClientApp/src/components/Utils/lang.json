@@ -1,14 +1,18 @@
 {
-  "en": {
+  "en-US": {
+    "local": "en-US",
     "musickr": "Musickr",
+    "play": "Play",
     "plays": "plays",
     "likes": "likes",
     "reposts": "reposts",
     "comments": "comments",
     "export": "Export Playlist"
   },
-  "fr": {
+  "fr-FR": {
+    "local": "fr-FR",
     "musickr": "Musiqueur",
+    "play": "Écouter",
     "plays": "écoutes",
     "likes": "mentions j'aime",
     "reposts": "reposts",
