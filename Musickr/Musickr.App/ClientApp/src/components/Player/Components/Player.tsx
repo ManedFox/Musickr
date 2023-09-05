@@ -81,18 +81,19 @@ const Player = ({
   const playButtonIcon = isPlaying ? <FaPause /> : <FaPlay />;
   
   return (
-    <Box
-      w="full"
+    <Flex
+      h="full"
       p="4"
       bgColor="gray.100"
       borderRadius="xl"
+      alignItems="center"
     >
       <ReactPlayer 
         ref={player}
         style={{display: "none"}} 
         url={currentTrack.url} 
         playing={isPlaying}
-        //onEnded={nextTrack}
+        onEnded={nextTrack}
         onProgress={handleProgress}
       />
       <VStack w="full">
@@ -146,7 +147,7 @@ const Player = ({
           />
         </HStack>
       </VStack>
-    </Box>
+    </Flex>
   )
 };
 

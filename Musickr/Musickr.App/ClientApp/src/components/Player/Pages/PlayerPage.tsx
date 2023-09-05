@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import {Spinner} from "@chakra-ui/react";
+import {Grid, GridItem, Spinner} from "@chakra-ui/react";
 
 import {useSearchParams} from "react-router-dom";
 
@@ -35,12 +35,42 @@ const PlayerPage = () => {
   }
 
   return (
-    <PageContent justify="stretch" alignItems="center">
-      <Player 
-        tracks={tracksData} 
-        currentTrackIndex={currentTrackIndex} 
-        onCurrentTrackIndexUpdated={setCurrentTrackIndex} 
-      />
+    <PageContent 
+      justify="stretch" 
+      alignItems="stretch"
+      p="0"
+    >
+      <Grid
+        templateAreas={`"image playlist" "player playlist"`}
+        gridTemplateRows='1fr 150px'
+        gridTemplateColumns='1fr 300px'
+        w="full"
+      >
+        <GridItem 
+          area={"image"} 
+          bgColor="red"
+        >
+          IMAGE
+        </GridItem>
+        <GridItem 
+          area={"player"} 
+          bgColor="blue"
+          p="4"
+        >
+          <Player
+            tracks={tracksData}
+            currentTrackIndex={currentTrackIndex}
+            onCurrentTrackIndexUpdated={setCurrentTrackIndex}
+          />
+        </GridItem>
+        <GridItem 
+          area={"playlist"} 
+          bgColor="yellow"
+        >
+          PLAYLIST
+        </GridItem>
+      </Grid>
+      
     </PageContent>
   );
 };
