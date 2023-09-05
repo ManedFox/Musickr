@@ -7,6 +7,7 @@ import {useSearchParams} from "react-router-dom";
 import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
 import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
+import Player from "../Components/Player";
 
 const PlayerPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,8 +35,12 @@ const PlayerPage = () => {
   }
 
   return (
-    <PageContent>
-      Content for {place} here !
+    <PageContent justify="stretch" alignItems="center">
+      <Player 
+        tracks={tracksData} 
+        currentTrackIndex={currentTrackIndex} 
+        onCurrentTrackIndexUpdated={setCurrentTrackIndex} 
+      />
     </PageContent>
   );
 };
