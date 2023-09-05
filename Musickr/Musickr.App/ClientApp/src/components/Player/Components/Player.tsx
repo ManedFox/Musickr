@@ -1,17 +1,17 @@
 import React, {
-  ChangeEvent, useCallback, useMemo, useRef,
+  useCallback, 
+  useMemo, 
+  useRef,
   useState
 } from "react"
 
 import {
   Box,
-  Button,
   HStack,
   SliderThumb,
   Slider,
   SliderFilledTrack,
   SliderTrack,
-  Text,
   Flex,
   VStack, IconButton, Link
 } from "@chakra-ui/react";
@@ -43,7 +43,7 @@ const Player = ({
     return tracks[currentTrackIndex];
   }, [tracks, currentTrackIndex]);
   
-  const nextTrack = useCallback(() => {
+  const handleNextTrack = useCallback(() => {
     const newIndex = currentTrackIndex + 1 > tracks.length ? 
       0 : 
       currentTrackIndex + 1;
@@ -52,7 +52,7 @@ const Player = ({
   }, 
   [onCurrentTrackIndexUpdated, currentTrackIndex]);
 
-  const previousTrack = useCallback(() => {
+  const handlePreviousTrack = useCallback(() => {
     const newIndex = currentTrackIndex - 1 < 0 ?
       0 :
       currentTrackIndex - 1;
@@ -63,7 +63,7 @@ const Player = ({
 
   const handlePlay = () => setIsPlaying(!isPlaying);
   
-  const handleProgress = useCallback(({ played }) => {
+  const handleTrackProgress = useCallback(({ played }) => {
     setTrackProgress(played * 100);
   },
   [setTrackProgress]);
@@ -93,8 +93,8 @@ const Player = ({
         style={{display: "none"}} 
         url={currentTrack.url} 
         playing={isPlaying}
-        onEnded={nextTrack}
-        onProgress={handleProgress}
+        onEnded={handleNextTrack}
+        onProgress={handleTrackProgress}
       />
       <VStack w="full">
         <Link 
@@ -113,7 +113,7 @@ const Player = ({
           onChangeEnd={handleSliderChangeEnd}
         >
           <SliderTrack bg="blue.100">
-            <Box position='relative' right={10} />
+            <Box position="relative" right={10} />
             <SliderFilledTrack bg="blue.600" />
           </SliderTrack>
           <SliderThumb boxSize={6} />
@@ -127,7 +127,7 @@ const Player = ({
             size="sm"
             aria-label="backward"
             icon={<FaBackwardStep />}
-            onClick={previousTrack}
+            onClick={handlePreviousTrack}
           />
           <IconButton 
             isRound={true}
@@ -143,7 +143,7 @@ const Player = ({
             size="sm"
             aria-label="forward"
             icon={<FaForwardStep />}
-            onClick={nextTrack}
+            onClick={handleNextTrack}
           />
         </HStack>
       </VStack>

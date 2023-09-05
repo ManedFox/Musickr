@@ -42,18 +42,18 @@ const PlayerPage = () => {
     >
       <Grid
         templateAreas={`"image playlist" "player playlist"`}
-        gridTemplateRows='1fr 150px'
-        gridTemplateColumns='1fr 300px'
+        gridTemplateRows="1fr 150px"
+        gridTemplateColumns="1fr 300px"
         w="full"
       >
         <GridItem 
-          area={"image"} 
+          area="image"
           bgColor="red"
         >
           IMAGE
         </GridItem>
         <GridItem 
-          area={"player"} 
+          area="player"
           bgColor="blue"
           p="4"
         >
@@ -64,7 +64,7 @@ const PlayerPage = () => {
           />
         </GridItem>
         <GridItem 
-          area={"playlist"} 
+          area="playlist"
           bgColor="yellow"
         >
           PLAYLIST
