@@ -78,7 +78,7 @@ const Playlist = ({defaultValue="", onChange, lang, playlist}: PlaylistProps) =>
   const { isLoading, data } = useGetUsersAndPlaces(searchContentDebounced);
   
   return (
-    <VStack w="100%" minW="300px" spacing="0" p="5%">
+    <VStack w="100%" minW="300px" spacing="0" p="5%" margin="0" fontSize="100%">
       <Heading variant='playlist'>{lang.musickr}</Heading>
       <SearchBar onChange={onChange} defaultValue={defaultValue}/> {/* need to modify this component to allow styling */}
       <Divider/>

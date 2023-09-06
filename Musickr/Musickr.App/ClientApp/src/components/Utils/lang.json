@@ -7,6 +7,7 @@
     "likes": "likes",
     "reposts": "reposts",
     "comments": "comments",
+    "followers": "followers",
     "export": "Export Playlist"
   },
   "fr-FR": {
@@ -17,6 +18,7 @@
     "likes": "mentions j'aime",
     "reposts": "reposts",
     "comments": "commentaires",
+    "followers": "abonnés",
     "export": "Exporter la Playlist"
   }
 }

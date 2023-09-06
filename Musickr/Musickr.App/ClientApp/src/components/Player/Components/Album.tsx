@@ -12,23 +12,33 @@ const Album = ({label,image="https://www.claudejardin.com/wp-content/themes/soun
 
   return (
     <Box
+      className='test'
       h='100%'
       aspectRatio="1"
       transition="100ms"
-      _hover={{
-        aspectRatio: "1.2/1"
+      sx={{
+        '.test': {
+          aspectRatio: "1.5",
+          paddingLeft:"20%",
+          borderWidth:"10px"
+        },
       }}
     >
-      <Image
-        h="100%"
+      <Box
+        className='test2'
+        h='100%'
         aspectRatio="1"
-        left="0px"
+        transition="100ms"
+        bgColor="red"
         _hover={{
-          left: "50px"
-          //animationDuration:"4s"
         }}
-        src='https://images.freeimages.com/fic/images/icons/2315/default_icon/256/media_vinyl_78.png'
-      />
+      >
+        <Image
+          h="100%"
+          aspectRatio="1"
+          src='https://images.freeimages.com/fic/images/icons/2315/default_icon/256/media_vinyl_78.png'
+        />
+      </Box>
 
       <Image
         h="100%"

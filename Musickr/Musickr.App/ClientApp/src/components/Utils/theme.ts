@@ -18,16 +18,26 @@ const theme = extendTheme({
         }
       }
     },
-    Text: {
+    Link: {
       variants: {
-        artist: {
-          border: '2px solid',
-          borderColor: 'purple.500',
-          color: 'rgb(153,153,153)',
+        playlistArtist: {
+          color: 'gray.400',
+          transitionDuration:'100ms',
+          fontFamily: ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif'],
           _hover:{
-            color:'teal.600'
+            color:'gray.800',
+            textDecoration:''
           }
-        }
+        },
+        playlistTitle: {
+          color: 'gray.600',
+          transitionDuration:'50ms',
+          fontFamily: ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif'],
+          _hover:{
+            color:'gray.800',
+            textDecoration:''
+          }
+        },
       }
     },
     Tooltip: {

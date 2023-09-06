@@ -2,7 +2,7 @@ import {createSearchParams, useNavigate} from "react-router-dom";
 import {
   Box,
   Center,
-  Divider,
+  Divider, Flex,
   Heading,
   HStack,
   Image,
@@ -14,9 +14,11 @@ import {
 import React, {useCallback, useRef} from "react";
 import SearchBar from "../../Search/Components/SearchBar";
 import Socials from "./Socials";
-import {ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
+import {AtSignIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
 import Export from "./Export";
 import Album from "./Album";
+import Artist from "./Artist";
+import Title from "./Title";
 
 type MusicProps = {
   lang:{[key: string]: string};
@@ -30,6 +32,7 @@ type MusicProps = {
     likes?: number,
     reposts?: number,
     comments?: number,
+    followers?: number,
     tags?: string[]     // genre tags
   }
 };
@@ -37,28 +40,29 @@ type MusicProps = {
 const Music = ({lang,music}: MusicProps) => {
 
   return (
-      <Center
-        w='100%'
-        aspectRatio="5/1"
-        bg={"blue.100"}>
-
-        <HStack h='76%' w='96.2%' spacing="0" bg={"red.100"}>
-          <Album label={lang.play} image={music.image} />
-          <VStack h="100%">
-            <Text fontSize="3%" variant='artist'>{music.title}</Text>
-            <Text h="3%">{music.artist}</Text>
-            <HStack h="30%">
-              <Socials local={lang.local} icon={ViewIcon} number={music.plays} label={lang.plays}/>
-              <Socials local={lang.local} icon={StarIcon} number={music.likes} label={lang.likes}/>
-              <Socials local={lang.local} icon={RepeatIcon} number={music.reposts} label={lang.reposts}/>
-              <Socials local={lang.local} icon={ChatIcon} number={music.comments} label={lang.comments}/>
-            </HStack>
-          </VStack>
-        </HStack>
-
-      </Center>
-    
-    );
+    <Box aspectRatio="3.8">
+      <Flex h='76%' w='100%' alignItems='center'>
+        <Album label={lang.play} image={music.image} />
+        <VStack h="90%" w="100%" spacing='0' align='left'>
+          <Flex w='100%' h='15%' alignItems='center' paddingLeft='5%'>
+            <Artist label={music.artist} link={music.link}>
+              <Socials local={lang.local} icon={AtSignIcon} number={music.followers} label={lang.plays}/>
+            </Artist>
+          </Flex>
+          <Flex w='100%' h='50%' alignItems='center' paddingLeft='5%'>
+            <Title label={music.title} link={music.link} />
+          </Flex>
+          <HStack h="35%" spacing='5px' paddingLeft={'5%'}>
+            <Socials local={lang.local} icon={ViewIcon} number={music.plays} label={lang.plays}/>
+            <Socials local={lang.local} icon={StarIcon} number={music.likes} label={lang.likes} link={music.link?music.link+'/likes':null}/>
+            <Socials local={lang.local} icon={RepeatIcon} number={music.reposts} label={lang.reposts} link={music.link?music.link+'/reposts':null}/>
+            <Socials local={lang.local} icon={ChatIcon} number={music.comments} label={lang.comments} link={music.link?music.link+'/comments':null}/>
+          </HStack>
+        </VStack>
+      </Flex>
+    </Box>
+  );
+  
 };
 
 export default React.memo(Music);
