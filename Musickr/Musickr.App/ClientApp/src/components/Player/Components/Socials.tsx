@@ -21,33 +21,31 @@ type SocialsProps = {
 }
 
 const Socials = ({local, icon, number, label, link}: SocialsProps) => {
+  
+  if (!number) {
+    return null;
+  }
+  
   return (
-    number?
-      <Tooltip
-        label={number.toLocaleString(local)+" "+label}
-        variant="socials"
-        placement='bottom'
-        openDelay={500}
-      >
-        {link?
-          <Tag>
-            <TagLeftIcon as={icon}/>
-            <TagLabel>
+    <Tooltip
+      label={number.toLocaleString(local)+" "+label}
+      variant="socials"
+      placement='bottom'
+      openDelay={500}
+    >
+        <Tag>
+          <TagLeftIcon as={icon}/>
+          <TagLabel>
+            {link?
               <Link href={link}>
                 {stringify(number)}
-              </Link>
-            </TagLabel>
-          </Tag>
-        :
-          <Tag>
-            <TagLeftIcon as={icon}/>
-            <TagLabel>
-              {stringify(number)}
-            </TagLabel>
-          </Tag>}
-      </Tooltip>
-      :
-      <></>
+              </Link> 
+            :
+              stringify(number)
+            }
+          </TagLabel>
+        </Tag>
+    </Tooltip>
   )
 }
 
