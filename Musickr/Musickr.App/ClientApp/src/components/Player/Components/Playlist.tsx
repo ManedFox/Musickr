@@ -28,7 +28,6 @@ import {
   ViewIcon
 } from "@chakra-ui/icons";
 import {useDebounce} from "react-use";
-import useGetUsersAndPlaces from "../../Utils/Hooks/useGetUsersAndPlaces";
 import {AutoComplete, AutoCompleteInput, AutoCompleteItem, AutoCompleteList} from "@choc-ui/chakra-autocomplete";
 import {MdPlace, MdSettings} from "react-icons/md";
 import {createSearchParams, useNavigate} from "react-router-dom";
@@ -74,8 +73,6 @@ const Playlist = ({defaultValue="", onChange, lang, playlist}: PlaylistProps) =>
     500,
     [searchContent]
   );
-
-  const { isLoading, data } = useGetUsersAndPlaces(searchContentDebounced);
   
   return (
     <VStack w="100%" minW="300px" spacing="0" p="5%" margin="0" fontSize="100%">

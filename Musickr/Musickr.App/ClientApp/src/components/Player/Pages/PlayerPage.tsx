@@ -1,15 +1,18 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 
 import {Grid, GridItem, Spinner} from "@chakra-ui/react";
 
-import {useSearchParams} from "react-router-dom";
+import {createSearchParams, useNavigate, useSearchParams} from "react-router-dom";
 
 import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
 import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
 import Player from "../Components/Player";
+import Playlist from "../Components/Playlist";
 
 const PlayerPage = () => {
+  const navigate = useNavigate();
+
   const [searchParams, setSearchParams] = useSearchParams();
   const place = searchParams.get("place");
   
@@ -25,6 +28,15 @@ const PlayerPage = () => {
     isLoading : isPhotosLoading,
     data : photosData
   } = useGetPhotos(place);
+
+  const onSearchBarChange = useCallback((value: string) => {
+    const params = { place: value };
+
+    navigate({
+      pathname: "/player",
+    })
+  },
+  [navigate]);
   
   if (isPhotosLoading || isTracksLoading) {
     return (
@@ -67,7 +79,12 @@ const PlayerPage = () => {
           area="playlist"
           bgColor="yellow"
         >
-          PLAYLIST
+          <Playlist 
+            onChange={onSearchBarChange} 
+            defaultValue={place} 
+            playlist={require(`../../Utils/dummy.json`)}
+            lang={require(`../../Utils/lang.json`)["fr-FR"]}
+          />
         </GridItem>
       </Grid>
       
