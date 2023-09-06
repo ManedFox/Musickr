@@ -85,7 +85,15 @@ const Playlist = ({defaultValue="", onChange, lang, playlist}: PlaylistProps) =>
         ))}
       </VStack>
       <Divider/>
-      <Export label={lang.export}/>
+      <Button
+        rightIcon={<ExternalLinkIcon/>}
+        size='sm'
+        colorScheme='orange'
+        variant='export'
+        bg='rgb()'
+      >
+        {lang.export}
+      </Button>
     </VStack>
   );
 };
