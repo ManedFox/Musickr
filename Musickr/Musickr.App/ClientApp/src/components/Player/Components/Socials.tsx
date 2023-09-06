@@ -1,16 +1,6 @@
-import {stringify} from "../../Utils/DisplayTools";
 import React from "react";
-import {
-  ComponentWithAs,
-  IconProps,
-  Link,
-  LinkOverlay,
-  Tag,
-  TagLabel,
-  TagLeftIcon,
-  TagRightIcon,
-  Tooltip
-} from "@chakra-ui/react";
+import {ComponentWithAs, IconProps, Link, Tag, TagLabel, TagLeftIcon, Tooltip} from "@chakra-ui/react";
+import {stringify} from "../../Utils/DisplayTools";
 
 type SocialsProps = {
   local:   string,
@@ -20,7 +10,13 @@ type SocialsProps = {
   link?:   string,
 }
 
-const Socials = ({local, icon, number, label, link}: SocialsProps) => {
+const Socials = ({
+  local,
+  icon,
+  number,
+  label,
+  link
+}: SocialsProps) => {
   
   if (!number) {
     return null;
@@ -47,6 +43,7 @@ const Socials = ({local, icon, number, label, link}: SocialsProps) => {
         </Tag>
     </Tooltip>
   )
+  
 }
 
 export default React.memo(Socials);

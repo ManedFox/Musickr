@@ -1,43 +1,34 @@
-import {createSearchParams, useNavigate} from "react-router-dom";
-import {
-  Box,
-  Center,
-  Divider, Flex,
-  Heading,
-  HStack,
-  Image,
-  Text,
-  useDimensions,
-  useDisclosure,
-  VStack
-} from "@chakra-ui/react";
-import React, {useCallback, useRef} from "react";
-import SearchBar from "../../Search/Components/SearchBar";
-import Socials from "./Socials";
+import React from "react";
+import {Box, Flex, HStack, VStack} from "@chakra-ui/react";
 import {AtSignIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
-import Export from "./Export";
 import Album from "./Album";
 import Artist from "./Artist";
 import Title from "./Title";
+import Socials from "./Socials";
 
 type MusicProps = {
-  lang:{[key: string]: string};
+  lang: {
+    [key: string]: string
+  };
   music: {
-    image?: string,     // link to the music image (should be a square picture)
-    link?: string,      // link to the music page
-    title: string,
-    artist: string,
-    duration?: number,  // duration already converted to text
-    plays?: number,
-    likes?: number,
-    reposts?: number,
-    comments?: number,
+    image?:     string,     // link to the music image (should be a square picture)
+    link?:      string,      // link to the music page
+    title:      string,
+    artist:     string,
+    duration?:  number,  // duration already converted to text
+    plays?:     number,
+    likes?:     number,
+    reposts?:   number,
+    comments?:  number,
     followers?: number,
-    tags?: string[]     // genre tags
+    tags?:      string[]     // genre tags
   }
 };
 
-const Music = ({lang,music}: MusicProps) => {
+const Music = ({
+ lang,
+ music
+}: MusicProps) => {
 
   return (
     <Box aspectRatio="3.8">

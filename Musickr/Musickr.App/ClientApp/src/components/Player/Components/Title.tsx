@@ -1,14 +1,15 @@
 import React from "react";
-import {Box, Center, HStack, Image, Link, Text, Tooltip, VStack} from "@chakra-ui/react";
-import Socials from "./Socials";
-import {ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
+import {Link, Tooltip} from "@chakra-ui/react";
 
 type TitleProps = {
   label: string;
   link?: string
 };
 
-const Title = ({label,link}: TitleProps) => {
+const Title = ({
+  label,
+  link
+}: TitleProps) => {
 
   return (
     <Tooltip

@@ -1,14 +1,15 @@
 import React from "react";
-import {Box, Center, HStack, Image, Text, VStack} from "@chakra-ui/react";
-import Socials from "./Socials";
-import {ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
+import {Box, Image} from "@chakra-ui/react";
 
 type AlbumProps = {
-  label: string;
+  label:  string;
   image?: string     // link to the music image (should be a square picture)
 };
 
-const Album = ({label,image="https://www.claudejardin.com/wp-content/themes/soundcheck/images/default-album-artwork.png"}: AlbumProps) => {
+const Album = ({
+  label,
+  image="https://www.claudejardin.com/wp-content/themes/soundcheck/images/default-album-artwork.png"
+}: AlbumProps) => {
 
   return (
     <Box

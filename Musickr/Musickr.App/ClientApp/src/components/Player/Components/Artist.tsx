@@ -1,29 +1,19 @@
 import React from "react";
-import {
-  Avatar,
-  Box,
-  Center,
-  HStack,
-  Image,
-  Link, LinkOverlay,
-  Popover, PopoverArrow, PopoverBody, PopoverCloseButton,
-  PopoverContent, PopoverHeader,
-  PopoverTrigger,
-  Text,
-  VStack
-} from "@chakra-ui/react";
-import Socials from "./Socials";
-import {BellIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
+import {Avatar, Link, LinkOverlay, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, VStack} from "@chakra-ui/react";
 
 type ArtistProps = {
-  label: string;
-  link?: string;
+  label:    string;
+  link?:    string;
   children: JSX.Element;
 };
 
-const Artist = ({label,link="#",children}: ArtistProps) => {
+const Artist = ({
+  label,
+  link="#",
+  children
+}: ArtistProps) => {
   
-  let profile:string = link.split('/').slice(0, -1).join('/');
+  const profile:string = link.split('/').slice(0, -1).join('/');
 
   return (
     <Popover
