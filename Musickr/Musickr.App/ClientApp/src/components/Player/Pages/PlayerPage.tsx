@@ -8,6 +8,7 @@ import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
 import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
 import Player from "../Components/Player";
+import ImageSlider from "../Components/ImageSlider";
 
 const PlayerPage = () => {
   const [place, setPlace] = useQueryParam("place", StringParam);
@@ -48,8 +49,13 @@ const PlayerPage = () => {
         <GridItem 
           area="image"
           bgColor="red"
+          p="4"
         >
-          IMAGE
+          <ImageSlider 
+            photos={photosData} 
+            currentPhotoIndex={currentPhotoIndex} 
+            onCurrentPhotoIndexUpdated={setCurrentPhotoIndex} 
+          />
         </GridItem>
         <GridItem 
           area="player"
