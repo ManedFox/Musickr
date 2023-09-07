@@ -33,22 +33,26 @@ const PlayerPage = () => {
       </PageContent>
     )
   }
+  
+  const firstPhoto = photosData[currentPhotoIndex];
 
   return (
     <PageContent 
       justify="stretch" 
       alignItems="stretch"
       p="0"
+      bgImage={`url('${firstPhoto?.url}')`}
+      bgSize="cover"
     >
       <Grid
         templateAreas={`"image playlist" "player playlist"`}
         gridTemplateRows="1fr 150px"
         gridTemplateColumns="1fr 300px"
         w="full"
+        backdropFilter="blur(10px)"
       >
         <GridItem 
           area="image"
-          bgColor="red"
           p="4"
         >
           <ImageSlider 
@@ -59,7 +63,6 @@ const PlayerPage = () => {
         </GridItem>
         <GridItem 
           area="player"
-          bgColor="blue"
           p="4"
         >
           <Player
