@@ -17,12 +17,10 @@ import {
   motion
 } from "framer-motion";
 
+import {Photo} from "../../Utils/Hooks/useGetPhotos";
+
 type ImageSliderProps = {
-  photos: {
-    author: string;
-    title: string;
-    url: string;
-  }[];
+  photos: Photo[];
   currentPhotoIndex: number;
   onCurrentPhotoIndexUpdated: (value: number) => void;
 };
@@ -84,7 +82,7 @@ const ImageSlider = ({
       variants={animationVariants}
       initial="slideIn"
       animate={currentAnimation}
-      bgColor={"black"}
+      bgColor="black"
       bgImage={`url('${currentPhoto?.url}')`}
       display="flex"
       h="full"
