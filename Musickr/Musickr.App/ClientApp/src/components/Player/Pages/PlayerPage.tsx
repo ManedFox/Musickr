@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 import {Grid, GridItem, Spinner} from "@chakra-ui/react";
 
-import {useSearchParams} from "react-router-dom";
+import {StringParam, useQueryParam} from "use-query-params";
 
 import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
@@ -10,8 +10,7 @@ import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
 import Player from "../Components/Player";
 
 const PlayerPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const place = searchParams.get("place");
+  const [place, setPlace] = useQueryParam("place", StringParam);
   
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);

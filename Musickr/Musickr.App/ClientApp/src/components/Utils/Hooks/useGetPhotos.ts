@@ -11,7 +11,7 @@ const useGetPhotos = (
     () => fetch(`api/photos?${createSearchParams(params)}`).then(res =>
       res.json()
     ),
-    { enabled: !!q }
+    { enabled: !!q, refetchOnWindowFocus: false }
   );
 };
 
