@@ -2,11 +2,13 @@ import React from "react";
 import {Link, Tooltip} from "@chakra-ui/react";
 
 type TitleProps = {
-  label: string;
-  link?: string
+  variant?: string;
+  label:    string;
+  link?:    string
 };
 
 const Title = ({
+  variant="playlistTitle",
   label,
   link="#"
 }: TitleProps) => {
@@ -18,7 +20,7 @@ const Title = ({
       openDelay={500}
     >
       <Link
-        variant='playlistTitle'
+        variant={variant}
         href={link}
       >
         {label}

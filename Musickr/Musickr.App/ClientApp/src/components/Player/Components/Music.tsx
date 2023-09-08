@@ -2,7 +2,6 @@ import React from "react";
 import {Box, Flex, HStack, VStack} from "@chakra-ui/react";
 import {AtSignIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
 import Album from "./Album";
-import Artist from "./Artist";
 import Title from "./Title";
 import SocialTag from "./SocialTag";
 
@@ -32,7 +31,7 @@ const Music = ({
         <Album image={music.image} />
         <VStack h="90%" w="100%" spacing='0' align='left'>
           <Flex w='100%' h='15%' alignItems='center' paddingLeft='5%'>
-            <Artist label={music.artist} link={music.link} />
+            <Title variant='playlistArtist' label={music.artist} link={music.link} />
           </Flex>
           <Flex w='100%' h='50%' alignItems='center' paddingLeft='5%'>
             <Title label={music.title} link={music.link} />
