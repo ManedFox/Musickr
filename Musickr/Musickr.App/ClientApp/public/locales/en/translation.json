@@ -1,0 +1,12 @@
+{
+  "searchPage" : {
+    "about" : {
+      "tooltip" : "About Musickr",
+      "modalTitle": "About Musickr",
+      "createdBy": "Created by T.Ferreira and Marobax",
+      "githubLink": "GitHub project link"
+    },
+    "searchBarPlaceholder": "Search a city...",
+    "searchBarEmpty": "No city found"
+  }
+}
