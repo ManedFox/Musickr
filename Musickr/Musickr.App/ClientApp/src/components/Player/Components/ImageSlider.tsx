@@ -6,11 +6,14 @@ import React, {
 } from "react"
 
 import {
-  chakra,
+  chakra, 
+  Flex,
   Heading, 
-  shouldForwardProp, 
+  Icon,
+  shouldForwardProp,
   VStack,
 } from "@chakra-ui/react";
+import {BiSad} from "react-icons/bi";
 
 import {
   isValidMotionProp, 
@@ -76,6 +79,30 @@ const ImageSlider = ({
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
   });
+  
+  if (photos?.length === 0) {
+    return (
+      <Flex
+        h="full"
+        bgColor="rgba(0, 0, 0, 0.7)"
+        color="white"
+        borderRadius="xl"
+        alignItems="center"
+        justify="center"
+      >
+        <VStack>
+          <Icon 
+            as={BiSad} 
+            h="24"
+            w="24"
+          />
+          <Heading>
+            No photos found
+          </Heading>
+        </VStack>
+      </Flex>
+    )
+  }
   
   return (
     <ChakraBox
