@@ -28,7 +28,6 @@ const Album = ({
         h='100%'
         aspectRatio="1"
         transition="100ms"
-        bgColor="red"
         _hover={{
         }}
       >

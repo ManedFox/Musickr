@@ -42,6 +42,8 @@ const PlayerPage = () => {
     return (
       <PageContent justify="center" alignItems="center">
         <Spinner size="xl" />
+        W
+        <Spinner size="xl" />
       </PageContent>
     )
   }
@@ -82,7 +84,7 @@ const PlayerPage = () => {
           <Playlist 
             onChange={onSearchBarChange} 
             defaultValue={place} 
-            playlist={require(`../../Utils/dummy.json`)}
+            tracks={tracksData}
           />
         </GridItem>
       </Grid>

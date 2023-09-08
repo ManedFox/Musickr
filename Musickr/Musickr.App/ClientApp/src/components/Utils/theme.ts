@@ -39,7 +39,7 @@ const Tooltip = defineStyleConfig({
 const Link = defineStyleConfig({
   variants: {
     playlistTitle: {
-      fontSize: 'lg',
+      fontSize: 'md',
       color: 'gray.600',
       transitionDuration: '50ms',
       fontFamily: soundCloudfonts,
@@ -49,7 +49,7 @@ const Link = defineStyleConfig({
       }
     },
     playlistArtist: {
-      size:'lg',
+      fontSize:'xs',
       color: 'gray.400',
       transitionDuration:'100ms',
       fontFamily: soundCloudfonts,

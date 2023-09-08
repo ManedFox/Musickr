@@ -22,6 +22,7 @@ const Title = ({
       <Link
         variant={variant}
         href={link}
+        noOfLines={1}
       >
         {label}
       </Link>
