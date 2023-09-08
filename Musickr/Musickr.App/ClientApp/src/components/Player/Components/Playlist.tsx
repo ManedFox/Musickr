@@ -44,7 +44,14 @@ const Playlist = ({
   );
   
   return (
-    <VStack w="100%" minW="300px" spacing="0" p="5%" margin="0" fontSize="100%">
+    <VStack
+      bgColor={'white'}
+      w="100%"
+      minW="300px"
+      h="100%"
+      spacing="0"
+      p="5%"
+    >
       <Heading variant='playlist'>Musickr</Heading>
       <SearchBar onChange={onChange} defaultValue={defaultValue}/> {/* need to modify this component to allow styling */}
       <Divider/>
@@ -55,11 +62,8 @@ const Playlist = ({
       </VStack>
       <Divider/>
       <Button
+        variant='playlistExport'
         rightIcon={<ExternalLinkIcon/>}
-        size='sm'
-        colorScheme='orange'
-        variant='export'
-        bg='rgb()'
       >
         {"Exporter la Playlist" /*i18n*/}
       </Button>

@@ -13,7 +13,7 @@ const Title = ({
 
   return (
     <Tooltip
-      variant="playlistTitle"
+      variant='playlistTitle'
       label={label}
       openDelay={500}
     >

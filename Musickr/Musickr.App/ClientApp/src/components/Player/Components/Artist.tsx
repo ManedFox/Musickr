@@ -22,10 +22,8 @@ const Artist = ({
       isLazy
     >
       <PopoverTrigger>
-        <Link
-          variant='playlistArtist'
-          fontSize='3.25vw'>{
-          label}
+        <Link variant='playlistArtist'>
+          {label}
         </Link>
       </PopoverTrigger>
       <PopoverContent
