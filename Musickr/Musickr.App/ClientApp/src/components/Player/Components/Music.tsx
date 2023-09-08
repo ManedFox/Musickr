@@ -32,9 +32,7 @@ const Music = ({
         <Album image={music.image} />
         <VStack h="90%" w="100%" spacing='0' align='left'>
           <Flex w='100%' h='15%' alignItems='center' paddingLeft='5%'>
-            <Artist label={music.artist} link={music.link}>
-              <SocialTag icon={AtSignIcon} number={music.followers} label={"abonnés"/*i18n*/}/>
-            </Artist>
+            <Artist label={music.artist} link={music.link} />
           </Flex>
           <Flex w='100%' h='50%' alignItems='center' paddingLeft='5%'>
             <Title label={music.title} link={music.link} />
@@ -44,6 +42,7 @@ const Music = ({
             <SocialTag icon={StarIcon} number={music.likes} label={"mentions j'aime"/*i18n*/} link={music.link?music.link+'/likes':null}/>
             <SocialTag icon={RepeatIcon} number={music.reposts} label={"reposts"/*i18n*/} link={music.link?music.link+'/reposts':null}/>
             <SocialTag icon={ChatIcon} number={music.comments} label={"commentaires"/*i18n*/} link={music.link?music.link+'/comments':null}/>
+            <SocialTag icon={AtSignIcon} number={music.followers} label={"abonnés"/*i18n*/} link={music.link?music.link.split('/').slice(0, -1).join('/')+'/followers':null}/>
           </HStack>
         </VStack>
       </Flex>
