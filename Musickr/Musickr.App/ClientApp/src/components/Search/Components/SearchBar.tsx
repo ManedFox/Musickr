@@ -53,7 +53,7 @@ const SearchBar = ({
           fontWeight="bold" 
           p="4"
         >
-          {t("searchPage.searchBarEmpty")}
+          {t("searchPage.searchBar.emptyState")}
         </Text>
       )}
       isLoading={isLoading}
@@ -63,7 +63,7 @@ const SearchBar = ({
         variant="filled"
         h="12"
         w="lg"
-        placeholder={t("searchPage.searchBarPlaceholder")}
+        placeholder={t("searchPage.searchBar.placeholder")}
         value={searchContent}
         onChange={handleInput}
       />

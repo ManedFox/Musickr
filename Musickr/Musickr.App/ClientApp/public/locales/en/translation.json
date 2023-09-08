@@ -6,8 +6,10 @@
       "createdBy": "Created by T.Ferreira and Marobax",
       "githubLink": "GitHub project link"
     },
-    "searchBarPlaceholder": "Search a city...",
-    "searchBarEmpty": "No city found"
+    "searchBar" : {
+      "placeholder": "Search a city...",
+      "emptyState": "No city found"
+    }
   },
   "playerPage": {
     "imageSlider": {
