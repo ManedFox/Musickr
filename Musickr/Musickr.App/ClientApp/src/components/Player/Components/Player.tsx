@@ -13,7 +13,10 @@ import {
   SliderFilledTrack,
   SliderTrack,
   Flex,
-  VStack, IconButton, Link
+  VStack, 
+  IconButton, 
+  Link, 
+  Heading
 } from "@chakra-ui/react";
 import ReactPlayer from "react-player";
 import {FaPause, FaPlay} from "react-icons/fa";
@@ -79,6 +82,23 @@ const Player = ({
   [player]);
   
   const playButtonIcon = isPlaying ? <FaPause /> : <FaPlay />;
+  
+  if (tracks?.length === 0) {
+    return (
+      <Flex
+        h="full"
+        p="4"
+        bgColor="gray.100"
+        borderRadius="xl"
+        alignItems="center"
+        justify="center"
+      >
+        <Heading size="md">
+          No tracks found
+        </Heading>
+      </Flex>
+    )
+  }
   
   return (
     <Flex
