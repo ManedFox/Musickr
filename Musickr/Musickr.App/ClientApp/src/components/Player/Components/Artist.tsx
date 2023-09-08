@@ -13,6 +13,7 @@ const Artist = ({
   children
 }: ArtistProps) => {
   
+  // www.website.com/page/subpage -> www.website.com/page
   const profile:string = link.split('/').slice(0, -1).join('/');
 
   return (
@@ -21,7 +22,11 @@ const Artist = ({
       isLazy
     >
       <PopoverTrigger>
-        <Link variant='playlistArtist' fontSize='3.25vw'>{label}</Link>
+        <Link
+          variant='playlistArtist'
+          fontSize='3.25vw'>{
+          label}
+        </Link>
       </PopoverTrigger>
       <PopoverContent
         p="5px"
@@ -30,13 +35,27 @@ const Artist = ({
         <PopoverArrow />
         <PopoverBody>
           <VStack>
-            <LinkOverlay href={profile}>
-              <Avatar name={label} src={"#"/*need the artist's profile picture*/} />
+            <LinkOverlay
+              href={profile}
+            >
+              <Avatar
+                name={label}
+                src={"#" /*need the artist's profile picture*/}
+              />
             </LinkOverlay>
-            <LinkOverlay href={profile}>
-              <Link variant='playlistArtist' href={profile}>{label}</Link>
+            <LinkOverlay
+              href={profile}
+            >
+              <Link
+                variant='playlistArtist'
+                href={profile}
+              >
+                {label}
+              </Link>
             </LinkOverlay>
-            <LinkOverlay href={profile+'/followers'}>
+            <LinkOverlay
+              href={profile+'/followers'}
+            >
               {children}
             </LinkOverlay>
           </VStack>

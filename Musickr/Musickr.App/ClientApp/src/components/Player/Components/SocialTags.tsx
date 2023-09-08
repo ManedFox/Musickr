@@ -2,21 +2,19 @@ import React from "react";
 import {ComponentWithAs, IconProps, Link, Tag, TagLabel, TagLeftIcon, Tooltip} from "@chakra-ui/react";
 import {stringify} from "../../Utils/DisplayTools";
 
-type SocialsProps = {
-  local:   string,
+type SocialTagsProps = {
   icon:    ComponentWithAs<"svg", IconProps>,
   number?: number,
   label:   string,
   link?:   string,
 }
 
-const Socials = ({
-  local,
+const SocialTags = ({
   icon,
   number,
   label,
   link
-}: SocialsProps) => {
+}: SocialTagsProps) => {
   
   if (!number) {
     return null;
@@ -24,8 +22,8 @@ const Socials = ({
   
   return (
     <Tooltip
-      label={number.toLocaleString(local)+" "+label}
-      variant="socials"
+      label={number.toLocaleString("fr-FR")+" "+label /*i18n*/}
+      variant="socialsTooltip"
       placement='bottom'
       openDelay={500}
     >
@@ -46,4 +44,4 @@ const Socials = ({
   
 }
 
-export default React.memo(Socials);
+export default React.memo(SocialTags);

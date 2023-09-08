@@ -8,9 +8,6 @@ import Music from "./Music";
 type PlaylistProps = {
   defaultValue?: string;
   onChange:      (value: string) => void;
-  lang: {
-    [key: string]: string
-  };
   playlist: {
     image?:    string, // link to the music image (should be a square picture)
     link?:     string, // link to the music page
@@ -28,7 +25,6 @@ type PlaylistProps = {
 const Playlist = ({
   defaultValue="",
   onChange,
-  lang,
   playlist
 }: PlaylistProps) => {
 
@@ -49,12 +45,12 @@ const Playlist = ({
   
   return (
     <VStack w="100%" minW="300px" spacing="0" p="5%" margin="0" fontSize="100%">
-      <Heading variant='playlist'>{lang.musickr}</Heading>
+      <Heading variant='playlist'>Musickr</Heading>
       <SearchBar onChange={onChange} defaultValue={defaultValue}/> {/* need to modify this component to allow styling */}
       <Divider/>
       <VStack w="100%" spacing="0">
         {playlist.map((music) => (
-          <Music lang={lang} music={music}/>
+          <Music music={music}/>
         ))}
       </VStack>
       <Divider/>
@@ -65,7 +61,7 @@ const Playlist = ({
         variant='export'
         bg='rgb()'
       >
-        {lang.export}
+        {"Exporter la Playlist" /*i18n*/}
       </Button>
     </VStack>
   );

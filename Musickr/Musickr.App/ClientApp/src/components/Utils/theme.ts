@@ -31,23 +31,13 @@ const theme = extendTheme({
         },
         playlistTitle: {
           color: 'gray.600',
-          transitionDuration:'50ms',
+          transitionDuration: '50ms',
           fontFamily: ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif'],
-          _hover:{
-            color:'gray.800',
+          _hover: {
+            color: 'gray.800',
             textDecoration:''
           }
         },
-      }
-    },
-    Tooltip: {
-      variants: {
-        socials: {
-          bg: 'gray.700',
-          color: 'gray.200',
-          fontsize:'50px',
-          fontFamily: ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif']
-        }
       }
     },
     Button: {
@@ -64,6 +54,17 @@ const theme = extendTheme({
         }
       }
     },
+    Tooltip: {
+      variants: {
+        playlistTitle: {  // Title.tsx
+          bg: 'gray.700',
+          color: 'gray.200',
+          fontsize:'50px',
+          fontFamily: ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif']
+        }
+      }
+    },
+    
     
   }
 })

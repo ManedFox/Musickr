@@ -8,17 +8,19 @@ type TitleProps = {
 
 const Title = ({
   label,
-  link
+  link="#"
 }: TitleProps) => {
 
   return (
     <Tooltip
+      variant="playlistTitle"
       label={label}
-      variant="socials"
-      placement='bottom'
       openDelay={500}
     >
-      <Link variant='playlistTitle' fontSize='3.75vw' href={link?link:'#'}>
+      <Link
+        variant='playlistTitle'
+        href={link}
+      >
         {label}
       </Link>
     </Tooltip>

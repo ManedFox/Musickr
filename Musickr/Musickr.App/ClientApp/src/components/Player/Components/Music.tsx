@@ -4,12 +4,9 @@ import {AtSignIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/i
 import Album from "./Album";
 import Artist from "./Artist";
 import Title from "./Title";
-import Socials from "./Socials";
+import SocialTags from "./SocialTags";
 
 type MusicProps = {
-  lang: {
-    [key: string]: string
-  };
   music: {
     image?:     string,     // link to the music image (should be a square picture)
     link?:      string,      // link to the music page
@@ -26,28 +23,28 @@ type MusicProps = {
 };
 
 const Music = ({
- lang,
  music
 }: MusicProps) => {
 
   return (
     <Box aspectRatio="3.8">
       <Flex h='76%' w='100%' alignItems='center'>
-        <Album label={lang.play} image={music.image} />
+        <Album image={music.image} />
         <VStack h="90%" w="100%" spacing='0' align='left'>
           <Flex w='100%' h='15%' alignItems='center' paddingLeft='5%'>
             <Artist label={music.artist} link={music.link}>
-              <Socials local={lang.local} icon={AtSignIcon} number={music.followers} label={lang.plays}/>
+              <SocialTags icon={AtSignIcon} number={music.followers} label={"abonnés"/*i18n*/}/>
             </Artist>
           </Flex>
-          <Flex w='100%' h='50%' alignItems='center' paddingLeft='5%'>
+          <Flex w='100%' h='50%' alignItems='center' paddingLeft='5%'
+                fontSize='5cqw' padding='2em'>
             <Title label={music.title} link={music.link} />
           </Flex>
           <HStack h="35%" spacing='5px' paddingLeft={'5%'}>
-            <Socials local={lang.local} icon={ViewIcon} number={music.plays} label={lang.plays}/>
-            <Socials local={lang.local} icon={StarIcon} number={music.likes} label={lang.likes} link={music.link?music.link+'/likes':null}/>
-            <Socials local={lang.local} icon={RepeatIcon} number={music.reposts} label={lang.reposts} link={music.link?music.link+'/reposts':null}/>
-            <Socials local={lang.local} icon={ChatIcon} number={music.comments} label={lang.comments} link={music.link?music.link+'/comments':null}/>
+            <SocialTags icon={ViewIcon} number={music.plays} label={"écoutes"/*i18n*/}/>
+            <SocialTags icon={StarIcon} number={music.likes} label={"mentions j'aime"/*i18n*/} link={music.link?music.link+'/likes':null}/>
+            <SocialTags icon={RepeatIcon} number={music.reposts} label={"reposts"/*i18n*/} link={music.link?music.link+'/reposts':null}/>
+            <SocialTags icon={ChatIcon} number={music.comments} label={"commentaires"/*i18n*/} link={music.link?music.link+'/comments':null}/>
           </HStack>
         </VStack>
       </Flex>

@@ -83,7 +83,6 @@ const PlayerPage = () => {
             onChange={onSearchBarChange} 
             defaultValue={place} 
             playlist={require(`../../Utils/dummy.json`)}
-            lang={require(`../../Utils/lang.json`)["fr-FR"]}
           />
         </GridItem>
       </Grid>

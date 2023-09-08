@@ -2,12 +2,10 @@ import React from "react";
 import {Box, Image} from "@chakra-ui/react";
 
 type AlbumProps = {
-  label:  string;
   image?: string     // link to the music image (should be a square picture)
 };
 
 const Album = ({
-  label,
   image="https://www.claudejardin.com/wp-content/themes/soundcheck/images/default-album-artwork.png"
 }: AlbumProps) => {
 
