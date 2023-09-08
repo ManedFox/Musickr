@@ -18,9 +18,11 @@ import {
   Link, 
   Heading
 } from "@chakra-ui/react";
-import ReactPlayer from "react-player";
 import {FaPause, FaPlay} from "react-icons/fa";
 import {FaBackwardStep, FaForwardStep} from "react-icons/fa6";
+
+import ReactPlayer from "react-player";
+import {useTranslation} from "react-i18next";
 
 type PlayerProps = {
   tracks: {
@@ -37,6 +39,8 @@ const Player = ({
   currentTrackIndex,
   onCurrentTrackIndexUpdated
 } : PlayerProps) => {
+  const { t } = useTranslation();
+  
   const player = useRef<ReactPlayer>(null);
   
   const [isPlaying, setIsPlaying] = useState(false);
@@ -94,7 +98,7 @@ const Player = ({
         justify="center"
       >
         <Heading size="md">
-          No tracks found
+          {t("playerPage.player.emptyState")}
         </Heading>
       </Flex>
     )

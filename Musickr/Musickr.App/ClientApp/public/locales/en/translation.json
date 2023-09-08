@@ -8,5 +8,14 @@
     },
     "searchBarPlaceholder": "Search a city...",
     "searchBarEmpty": "No city found"
+  },
+  "playerPage": {
+    "imageSlider": {
+      "emptyState": "No photos found",
+      "author": "By {{author}}"
+    },
+    "player": {
+      "emptyState": "No musics found"
+    }
   }
 }

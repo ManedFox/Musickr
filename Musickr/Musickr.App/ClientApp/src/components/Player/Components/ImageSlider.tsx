@@ -19,6 +19,7 @@ import {
   isValidMotionProp, 
   motion
 } from "framer-motion";
+import {useTranslation} from "react-i18next";
 
 import {Photo} from "../../Utils/Hooks/useGetPhotos";
 
@@ -33,7 +34,8 @@ const ImageSlider = ({
   currentPhotoIndex,
   onCurrentPhotoIndexUpdated
 } : ImageSliderProps) => {
-
+  const { t } = useTranslation();
+  
   const [currentAnimation, setCurrentAnimation] = useState("slideIn");
   
   const currentPhoto = useMemo(() => {
@@ -97,7 +99,7 @@ const ImageSlider = ({
             w="24"
           />
           <Heading>
-            No photos found
+            {t("playerPage.imageSlider.emptyState")}
           </Heading>
         </VStack>
       </Flex>
@@ -130,7 +132,10 @@ const ImageSlider = ({
           {currentPhoto?.title}
         </Heading>
         <Heading color="gray.500" size="sm" fontWeight="light">
-          By {currentPhoto?.author}
+          {t(
+            "playerPage.imageSlider.author", 
+            { author: currentPhoto?.author }
+          )}
         </Heading>
       </VStack>
     </ChakraBox>
