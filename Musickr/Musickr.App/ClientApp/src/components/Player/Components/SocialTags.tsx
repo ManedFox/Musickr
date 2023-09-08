@@ -1,6 +1,5 @@
 import React from "react";
 import {ComponentWithAs, IconProps, Link, Tag, TagLabel, TagLeftIcon, Tooltip} from "@chakra-ui/react";
-import {stringify} from "../../Utils/DisplayTools";
 
 type SocialTagsProps = {
   icon:    ComponentWithAs<"svg", IconProps>,
@@ -20,6 +19,10 @@ const SocialTags = ({
     return null;
   }
   
+  let shortNumber = number.toPrecision(3).split('e')[0];
+  shortNumber = number<100 ? shortNumber.split('.')[0] : shortNumber;
+  shortNumber += (number >= 1000000) ? "M" : (number >= 1000) ? "K" : "";
+  
   return (
     <Tooltip
       label={number.toLocaleString("fr-FR")+" "+label /*i18n*/}
@@ -32,10 +35,10 @@ const SocialTags = ({
           <TagLabel>
             {link?
               <Link href={link}>
-                {stringify(number)}
+                {shortNumber}
               </Link> 
             :
-              stringify(number)
+              shortNumber
             }
           </TagLabel>
         </Tag>
