@@ -31,7 +31,7 @@ const Track = ({
         <Album image={track.image} />
         <VStack h="90%" w="100%" spacing='0' align='left'>
           <Flex w='100%' h='15%' alignItems='center' paddingLeft='5%'>
-            <Title variant='playlistArtist' label={track.author} link={track.url} />
+            <Title isArtist label={track.author} link={track.url} />
           </Flex>
           <Flex w='100%' h='50%' alignItems='center' paddingLeft='5%'>
             <Title label={track.title} link={track.url} />

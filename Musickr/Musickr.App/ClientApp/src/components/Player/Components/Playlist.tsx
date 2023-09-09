@@ -1,7 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import {useDebounce} from "react-use";
-import {Button, Divider, Heading, VStack} from "@chakra-ui/react";
-import {ExternalLinkIcon} from "@chakra-ui/icons";
+import {Divider, Heading, VStack} from "@chakra-ui/react";
 import SearchBar from "../../Search/Components/SearchBar";
 import Track from "./Track";
 
@@ -54,7 +53,16 @@ const Playlist = ({
       overflow={"hidden"}
     >
       <VStack p="5%" w="100%">
-        <Heading variant='playlist'>Musickr</Heading>
+        <Heading
+          color='gray.300'
+          userSelect='none'
+          _hover={{
+            color:'gray.500',
+            transitionDuration: '200ms',
+          }}
+        >
+          Musickr
+        </Heading>
         <SearchBar onChange={onChange} defaultValue={defaultValue} /> {/* need to modify this component to allow styling */}
       </VStack>
       <Divider w="90%" />
@@ -64,13 +72,6 @@ const Playlist = ({
         ))}
       </VStack>
       <Divider w="90%" />
-      <Button
-        p={"5%"}
-        variant='playlistExport'
-        rightIcon={<ExternalLinkIcon/>}
-      >
-        {"Exporter la Playlist" /*i18n*/}
-      </Button>
     </VStack>
   );
   

@@ -12,7 +12,6 @@ const Album = ({
   return (    
     <Tooltip
       label={"Écouter"/*i18n*/}
-      variant="socialsTooltip"
       openDelay={500}
     >
       <Box
