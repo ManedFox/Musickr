@@ -26,7 +26,7 @@ const Track = ({
 }: TrackProps) => {
 
   return (
-    <Box aspectRatio="3.8">
+    <Box aspectRatio="3.8" w='90%'>
       <Flex h='76%' w='100%' alignItems='center'>
         <Album image={track.image} />
         <VStack h="90%" w="100%" spacing='0' align='left'>

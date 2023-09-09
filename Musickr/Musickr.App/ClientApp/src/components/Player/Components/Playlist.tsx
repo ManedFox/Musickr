@@ -51,20 +51,21 @@ const Playlist = ({
       minW="300px"
       h="100%"
       spacing="0"
-      p="5%"
-      overflowX={"hidden"}
-      overflowY={"scroll"}
+      overflow={"hidden"}
     >
-      <Heading variant='playlist'>Musickr</Heading>
-      <SearchBar onChange={onChange} defaultValue={defaultValue}/> {/* need to modify this component to allow styling */}
-      <Divider/>
-      <VStack w="100%" spacing="0">
+      <VStack p="5%" w="100%">
+        <Heading variant='playlist'>Musickr</Heading>
+        <SearchBar onChange={onChange} defaultValue={defaultValue} /> {/* need to modify this component to allow styling */}
+      </VStack>
+      <Divider w="90%" />
+      <VStack w="100%" spacing="0" overflowX={"hidden"} overflowY={"scroll"} paddingTop="5px">
         {tracks.map((track) => (
           <Track track={track}/>
         ))}
       </VStack>
-      <Divider/>
+      <Divider w="90%" />
       <Button
+        p={"5%"}
         variant='playlistExport'
         rightIcon={<ExternalLinkIcon/>}
       >
