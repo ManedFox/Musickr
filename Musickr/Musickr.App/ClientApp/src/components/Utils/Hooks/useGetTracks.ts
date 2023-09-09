@@ -11,7 +11,7 @@ const useGetTracks = (
     () => fetch(`api/tracks?${createSearchParams(params)}`).then(res =>
       res.json()
     ),
-    { enabled: !!place }
+    { enabled: !!place, refetchOnWindowFocus: false }
   );
 };
 

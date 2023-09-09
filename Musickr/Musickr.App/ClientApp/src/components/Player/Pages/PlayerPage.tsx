@@ -1,20 +1,18 @@
-import React, {useCallback, useState} from "react";
+import React, {useState} from "react";
 
 import {Grid, GridItem, Spinner} from "@chakra-ui/react";
 
-import {createSearchParams, useNavigate, useSearchParams} from "react-router-dom";
+import {StringParam, useQueryParam} from "use-query-params";
 
 import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
 import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
 import Player from "../Components/Player";
+import ImageSlider from "../Components/ImageSlider";
 import Playlist from "../Components/Playlist";
 
 const PlayerPage = () => {
-  const navigate = useNavigate();
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const place = searchParams.get("place");
+  const [place, setPlace] = useQueryParam("place", StringParam);
   
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -28,43 +26,41 @@ const PlayerPage = () => {
     isLoading : isPhotosLoading,
     data : photosData
   } = useGetPhotos(place);
-
-  const onSearchBarChange = useCallback((value: string) => {
-    const params = { place: value };
-
-    navigate({
-      pathname: "/player",
-    })
-  },
-  [navigate]);
   
   if (isPhotosLoading || isTracksLoading) {
     return (
       <PageContent justify="center" alignItems="center">
         <Spinner size="xl" />
-        W
-        <Spinner size="xl" />
       </PageContent>
     )
   }
+  
+  const firstPhoto = photosData[currentPhotoIndex];
 
   return (
     <PageContent 
       justify="stretch" 
       alignItems="stretch"
       p="0"
+      bgImage={`url('${firstPhoto?.url}')`}
+      bgSize="cover"
     >
       <Grid
         templateAreas={`"image playlist" "player playlist"`}
         gridTemplateRows="1fr 150px"
         gridTemplateColumns="1fr 300px"
         w="full"
+        backdropFilter="blur(10px)"
       >
         <GridItem 
           area="image"
-          bgColor="red"
+          p="4"
         >
-          IMAGE
+          <ImageSlider 
+            photos={photosData} 
+            currentPhotoIndex={currentPhotoIndex} 
+            onCurrentPhotoIndexUpdated={setCurrentPhotoIndex} 
+          />
         </GridItem>
         <GridItem 
           area="player"
@@ -81,9 +77,7 @@ const PlayerPage = () => {
           area="playlist"
           bgColor="yellow"
         >
-          <Playlist 
-            onChange={onSearchBarChange} 
-            defaultValue={place} 
+          <Playlist
             tracks={tracksData}
           />
         </GridItem>

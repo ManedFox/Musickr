@@ -13,12 +13,15 @@ import {
   createSearchParams, 
   useNavigate
 } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 import PageContent from "../../Utils/PageContent";
 import AboutModal from "../Components/AboutModal";
 import SearchBar from "../Components/SearchBar";
 
 const SearchPage = () => {
+  const { t } = useTranslation();
+  
   const navigate = useNavigate();
   const { isOpen, onClose, onOpen } = useDisclosure();
   
@@ -48,7 +51,7 @@ const SearchPage = () => {
       </VStack>
       <Tooltip
         hasArrow
-        label="About Musickr"
+        label={t("searchPage.about.tooltip")}
       >
         <IconButton 
           onClick={onOpen}

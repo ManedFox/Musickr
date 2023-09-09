@@ -13,11 +13,16 @@ import {
   SliderFilledTrack,
   SliderTrack,
   Flex,
-  VStack, IconButton, Link
+  VStack, 
+  IconButton, 
+  Link, 
+  Heading
 } from "@chakra-ui/react";
-import ReactPlayer from "react-player";
 import {FaPause, FaPlay} from "react-icons/fa";
 import {FaBackwardStep, FaForwardStep} from "react-icons/fa6";
+
+import ReactPlayer from "react-player";
+import {useTranslation} from "react-i18next";
 
 type PlayerProps = {
   tracks: {
@@ -34,6 +39,8 @@ const Player = ({
   currentTrackIndex,
   onCurrentTrackIndexUpdated
 } : PlayerProps) => {
+  const { t } = useTranslation();
+  
   const player = useRef<ReactPlayer>(null);
   
   const [isPlaying, setIsPlaying] = useState(false);
@@ -79,6 +86,23 @@ const Player = ({
   [player]);
   
   const playButtonIcon = isPlaying ? <FaPause /> : <FaPlay />;
+  
+  if (tracks?.length === 0) {
+    return (
+      <Flex
+        h="full"
+        p="4"
+        bgColor="gray.100"
+        borderRadius="xl"
+        alignItems="center"
+        justify="center"
+      >
+        <Heading size="md">
+          {t("playerPage.player.emptyState")}
+        </Heading>
+      </Flex>
+    )
+  }
   
   return (
     <Flex
