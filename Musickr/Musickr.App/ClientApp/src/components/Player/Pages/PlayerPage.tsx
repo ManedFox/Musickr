@@ -48,7 +48,7 @@ const PlayerPage = () => {
       <Grid
         templateAreas={`"image playlist" "player playlist"`}
         gridTemplateRows="1fr 150px"
-        gridTemplateColumns="1fr 300px"
+        gridTemplateColumns="1fr 400px"
         w="full"
         backdropFilter="blur(10px)"
       >
@@ -64,7 +64,6 @@ const PlayerPage = () => {
         </GridItem>
         <GridItem 
           area="player"
-          bgColor="blue"
           p="4"
         >
           <Player
@@ -75,7 +74,6 @@ const PlayerPage = () => {
         </GridItem>
         <GridItem 
           area="playlist"
-          bgColor="yellow"
         >
           <Playlist
             tracks={tracksData}
