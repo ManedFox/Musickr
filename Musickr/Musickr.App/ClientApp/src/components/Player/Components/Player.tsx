@@ -24,12 +24,10 @@ import {FaBackwardStep, FaForwardStep} from "react-icons/fa6";
 import ReactPlayer from "react-player";
 import {useTranslation} from "react-i18next";
 
+import {Track} from "../../Utils/Hooks/useGetTracks";
+
 type PlayerProps = {
-  tracks: {
-    author: string;
-    title: string;
-    url: string;
-  }[];
+  tracks: Track[];
   currentTrackIndex: number;
   onCurrentTrackIndexUpdated: (value: number) => void;
 };

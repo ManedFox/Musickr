@@ -1,6 +1,12 @@
 import {useQuery} from "react-query";
 import {createSearchParams} from "react-router-dom";
 
+export type Track = {
+  author: string;
+  title: string;
+  url: string;
+};
+
 const useGetTracks = (
   place: string
 ) => {
