@@ -35,8 +35,6 @@ const SocialTag = ({
     return null;
   }
   
-  const soundCloudFonts = ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif'];
-  
   return (
     <Tooltip
       label={number.toLocaleString("fr-FR")+" "+label /*i18n*/}
@@ -46,11 +44,11 @@ const SocialTag = ({
           <TagLeftIcon as={icon}/>
           <TagLabel>
             {link?
-              <Link fontFamily={soundCloudFonts} href={link}>
+              <Link href={link}>
                 {simplifiedNumber}
               </Link> 
             : 
-              <Text fontFamily={soundCloudFonts}>
+              <Text>
                 {simplifiedNumber}
               </Text>
             }

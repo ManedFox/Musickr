@@ -13,8 +13,6 @@ const Title = ({
   link="#"
 }: TitleProps) => {
 
-  const soundCloudFonts = ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif'];
-
   return (
     <Tooltip
       label={label}
@@ -27,7 +25,6 @@ const Title = ({
           fontSize='xs'
           color='gray.400'
           transitionDuration='100ms'
-          fontFamily={soundCloudFonts}
           _hover={{
             color:'gray.800',
             textDecoration:''
@@ -42,7 +39,6 @@ const Title = ({
           fontSize='md'
           color='gray.600'
           transitionDuration='50ms'
-          fontFamily={soundCloudFonts}
           _hover={{
             color: 'gray.800',
             textDecoration: ''
