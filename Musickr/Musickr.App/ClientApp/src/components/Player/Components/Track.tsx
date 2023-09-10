@@ -4,6 +4,7 @@ import {AtSignIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/i
 import Album from "./Album";
 import Title from "./Title";
 import SocialTag from "./SocialTag";
+import {BsFillChatLeftFill, BsFillHeartFill, BsFillPeopleFill, BsFillPlayFill, BsRepeat} from "react-icons/bs";
 
 type TrackProps = {
   track: {
@@ -37,11 +38,11 @@ const Track = ({
             <Title label={track.title} link={track.url} />
           </Flex>
           <HStack h="35%" spacing='5px' paddingLeft={'5%'}>
-            <SocialTag icon={ViewIcon} number={track.plays} label={"écoutes"/*i18n*/}/>
-            <SocialTag icon={StarIcon} number={track.likes} label={"mentions j'aime"/*i18n*/} link={track.url?track.url+'/likes':null}/>
-            <SocialTag icon={RepeatIcon} number={track.reposts} label={"reposts"/*i18n*/} link={track.url?track.url+'/reposts':null}/>
-            <SocialTag icon={ChatIcon} number={track.comments} label={"commentaires"/*i18n*/} link={track.url?track.url+'/comments':null}/>
-            <SocialTag icon={AtSignIcon} number={track.followers} label={"abonnés"/*i18n*/} link={track.url?track.url.split('/').slice(0, -1).join('/')+'/followers':null}/>
+            <SocialTag icon={BsFillPlayFill} number={track.plays} label={"écoutes"/*i18n*/}/>
+            <SocialTag icon={BsFillHeartFill} number={track.likes} label={"mentions j'aime"/*i18n*/} link={track.url?track.url+'/likes':null}/>
+            <SocialTag icon={BsRepeat} number={track.reposts} label={"reposts"/*i18n*/} link={track.url?track.url+'/reposts':null}/>
+            <SocialTag icon={BsFillChatLeftFill} number={track.comments} label={"commentaires"/*i18n*/} link={track.url?track.url+'/comments':null}/>
+            <SocialTag icon={BsFillPeopleFill} number={track.followers} label={"abonnés"/*i18n*/} link={track.url?track.url.split('/').slice(0, -1).join('/')+'/followers':null}/>
           </HStack>
         </VStack>
       </Flex>

@@ -65,7 +65,7 @@ const Playlist = ({
         />
       </VStack>
       <Divider w="90%" />
-      <VStack w="100%" spacing="0" overflowX={"hidden"} overflowY={"scroll"} paddingTop="5px">
+      <VStack w="100%" spacing="0" overflowX={"hidden"} overflowY={"scroll"} paddingTop="15px">
         {tracks.map((track) => (
           <Track key={track.url} track={track}/>
         ))}

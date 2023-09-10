@@ -1,8 +1,9 @@
 import React, {useMemo} from "react";
 import {ComponentWithAs, IconProps, Link, Tag, TagLabel, TagLeftIcon, Tooltip, Text} from "@chakra-ui/react";
+import {IconType} from "react-icons";
 
 type SocialTagProps = {
-  icon:    ComponentWithAs<"svg", IconProps>,
+  icon:    IconType,
   number?: number,
   label:   string,
   link?:   string,
@@ -14,19 +15,25 @@ const SocialTag = ({
   label,
   link
 }: SocialTagProps) => {
-  
-  if (!number) {
-    return null;
-  }
 
   const simplifiedNumber = useMemo(() => {
-      let simplifiedNumber = number.toPrecision(3).split('e')[0];
-      simplifiedNumber = number>=100 ? simplifiedNumber : simplifiedNumber.split('.')[0];
-      simplifiedNumber += (number >= 1000000) ? "M" : (number >= 1000) ? "K" : "";
+
+    if (!number) {
+      return null;
+    }
+  
+    let simplifiedNumber = number.toPrecision(3).split('e')[0];
+    simplifiedNumber = number>=100 ? simplifiedNumber : simplifiedNumber.split('.')[0];
+    simplifiedNumber += (number >= 1000000) ? "M" : (number >= 1000) ? "K" : "";
     
     return simplifiedNumber
   }, 
-  [number]);
+  [number]
+  );
+  
+  if (!simplifiedNumber) {
+    return null;
+  }
   
   const soundCloudFonts = ['Interstate', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Garuda', 'Verdana', 'Tahoma', 'sans-serif'];
   
