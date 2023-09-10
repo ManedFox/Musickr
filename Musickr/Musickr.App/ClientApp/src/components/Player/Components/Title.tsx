@@ -4,13 +4,13 @@ import {Link, Tooltip} from "@chakra-ui/react";
 type TitleProps = {
   isArtist?: boolean;
   label:     string;
-  link?:     string
+  link:      string
 };
 
 const Title = ({
   isArtist,
   label,
-  link="#"
+  link
 }: TitleProps) => {
 
   return (

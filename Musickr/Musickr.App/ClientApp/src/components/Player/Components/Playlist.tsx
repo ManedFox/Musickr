@@ -1,5 +1,4 @@
-import React, {ChangeEvent, useCallback, useState} from "react";
-import {useDebounce} from "react-use";
+import React, {useCallback} from "react";
 import {Divider, Heading, VStack} from "@chakra-ui/react";
 import SearchBar from "../../Search/Components/SearchBar";
 import Track from "./Track";
@@ -11,14 +10,14 @@ type PlaylistProps = {
     author:     string,
     title:      string,
     url?:       string,
-    image?:     string, // link to the music image (should be a square picture)
+    image?:     string,
     duration?:  number,
     plays?:     number,
     likes?:     number,
     reposts?:   number,
     comments?:  number,
     followers?: number,
-    tags?:      string[] // music genre tags
+    tags?:      string[]
   }[]
 };
 

@@ -2,18 +2,21 @@ import React from "react";
 import {Box, Center, Image, Tooltip} from "@chakra-ui/react";
 import {FaPlay, FaRecordVinyl} from "react-icons/fa";
 import {GiMusicalNotes} from "react-icons/gi";
+import {useTranslation} from "react-i18next";
 
 type AlbumProps = {
-  image?: string // link to the music image (should be a square picture)
+  image?: string
 };
 
 const Album = ({
   image
 }: AlbumProps) => {
+  
+  const { t } = useTranslation();
 
   return (    
     <Tooltip
-      label={"Écouter"/*i18n*/}
+      label={t("playerPage.playlist.play")}
       openDelay={500}
     >
       <Box

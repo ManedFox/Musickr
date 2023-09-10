@@ -18,6 +18,14 @@
     },
     "player": {
       "emptyState": "No musics found"
+    },
+    "playlist": {
+      "play": "Play",
+      "plays": "plays",
+      "likes": "likes",
+      "reposts": "reposts",
+      "comments": "comments",
+      "followers": "followers"
     }
   }
 }
