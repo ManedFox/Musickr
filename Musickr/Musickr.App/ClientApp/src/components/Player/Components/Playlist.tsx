@@ -25,6 +25,7 @@ type PlaylistProps = {
 const Playlist = ({
   tracks
 }: PlaylistProps) => {
+  
   const [place, setPlace] = useQueryParam("place", StringParam);
   
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const Playlist = ({
       <Divider w="90%" />
       <VStack w="100%" spacing="0" overflowX={"hidden"} overflowY={"scroll"} paddingTop="5px">
         {tracks.map((track) => (
-          <Track track={track}/>
+          <Track key={track.url} track={track}/>
         ))}
       </VStack>
       <Divider w="90%" />
