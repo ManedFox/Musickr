@@ -1,26 +1,14 @@
 import React from "react";
 import {Box, Flex, HStack, VStack} from "@chakra-ui/react";
-import {AtSignIcon, ChatIcon, RepeatIcon, StarIcon, ViewIcon} from "@chakra-ui/icons";
 import Album from "./Album";
 import Title from "./Title";
 import SocialTag from "./SocialTag";
+import type {Track as TrackType} from "../../Utils/Hooks/useGetTracks";
 import {BsFillChatLeftFill, BsFillHeartFill, BsFillPeopleFill, BsFillPlayFill, BsRepeat} from "react-icons/bs";
 import {useTranslation} from "react-i18next";
 
 type TrackProps = {
-  track: {
-    author:     string,
-    title:      string,
-    url?:       string,
-    image?:     string,
-    duration?:  number,
-    plays?:     number,
-    likes?:     number,
-    reposts?:   number,
-    comments?:  number,
-    followers?: number,
-    tags?:      string[]
-  }
+  track: TrackType
 };
 
 const Track = ({

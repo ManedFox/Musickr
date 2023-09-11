@@ -2,23 +2,12 @@ import React, {useCallback} from "react";
 import {Divider, Heading, VStack} from "@chakra-ui/react";
 import SearchBar from "../../Search/Components/SearchBar";
 import Track from "./Track";
+import type {Track as TrackType} from "../../Utils/Hooks/useGetTracks";
 import {createSearchParams, useNavigate} from "react-router-dom";
 import {StringParam, useQueryParam} from "use-query-params";
 
 type PlaylistProps = {
-  tracks: {
-    author:     string,
-    title:      string,
-    url?:       string,
-    image?:     string,
-    duration?:  number,
-    plays?:     number,
-    likes?:     number,
-    reposts?:   number,
-    comments?:  number,
-    followers?: number,
-    tags?:      string[]
-  }[]
+  tracks: TrackType[]
 };
 
 const Playlist = ({
