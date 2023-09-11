@@ -60,7 +60,10 @@ public class TracksController : SoundcloudControllerBase
                 {
                     Author = (string)track["user"]["username"],
                     Title = (string)track["title"],
-                    Url = (string)track["permalink_url"]
+                    Url = (string)track["permalink_url"],
+                    ArtworkUrl = (string)track["artwork_url"],
+                    Genre = (string)track["genre"],
+                    Tags = ((string)track["tag_list"]).Split(' ')
                 });
             }
         }
