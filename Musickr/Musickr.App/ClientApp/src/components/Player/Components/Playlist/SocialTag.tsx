@@ -1,13 +1,13 @@
-import React, {useMemo} from "react";
-import {Link, Tag, TagLabel, TagLeftIcon, Tooltip, Text} from "@chakra-ui/react";
-import {IconType} from "react-icons";
-import i18next from "i18next";
+import React, {useMemo} from 'react';
+import {Link, Tag, TagLabel, TagLeftIcon, Tooltip, Text} from '@chakra-ui/react';
+import i18next from 'i18next';
+import {IconType} from 'react-icons';
 
 type SocialTagProps = {
-  icon:    IconType;
+  icon: IconType;
   number?: number;
-  label:   string;
-  link?:   string;
+  label: string;
+  link?: string;
 }
 
 const SocialTag = ({
@@ -24,10 +24,11 @@ const SocialTag = ({
     }
   
     let simplifiedNumber = number.toPrecision(3).split('e')[0];
-    simplifiedNumber = number>=100 ? simplifiedNumber : simplifiedNumber.split('.')[0];
-    simplifiedNumber += (number >= 1000000) ? "M" : (number >= 1000) ? "K" : "";
+    simplifiedNumber = number >= 100 ? simplifiedNumber : simplifiedNumber.split('.')[0];
+    simplifiedNumber += number >= 1000000 ? 'M' : (number >= 1000 ? 'K' : '');
     
     return simplifiedNumber
+    
   }, 
   [number]
   );
@@ -38,7 +39,7 @@ const SocialTag = ({
   
   return (
     <Tooltip
-      label={number.toLocaleString(i18next.language)+" "+label}
+      label={number.toLocaleString(i18next.language) + ' ' + label}
       openDelay={500}
     >
         <Tag>

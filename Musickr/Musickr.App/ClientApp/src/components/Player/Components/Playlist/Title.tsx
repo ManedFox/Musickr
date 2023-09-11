@@ -1,10 +1,10 @@
-import React from "react";
-import {Link, Tooltip} from "@chakra-ui/react";
+import React from 'react';
+import {Link, Tooltip} from '@chakra-ui/react';
 
 type TitleProps = {
   isArtist?: boolean;
-  label:     string;
-  link:      string;
+  label: string;
+  link: string;
 };
 
 const Title = ({
@@ -26,8 +26,8 @@ const Title = ({
           color='gray.400'
           transitionDuration='100ms'
           _hover={{
-            color:'gray.800',
-            textDecoration:''
+            color: 'gray.800',
+            textDecoration: ''
           }}
         >
           {label}

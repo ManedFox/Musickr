@@ -9,7 +9,7 @@ import useGetTracks from "../../Utils/Hooks/useGetTracks";
 import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
 import Player from "../Components/Player";
 import ImageSlider from "../Components/ImageSlider";
-import Playlist from "../Components/Playlist";
+import Playlist from "../Components//Playlist/Playlist";
 
 const PlayerPage = () => {
   const [place, setPlace] = useQueryParam("place", StringParam);
