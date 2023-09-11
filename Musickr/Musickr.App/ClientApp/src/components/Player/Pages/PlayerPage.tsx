@@ -77,6 +77,8 @@ const PlayerPage = () => {
         >
           <Playlist
             tracks={tracksData}
+            currentTrackIndex={currentTrackIndex}
+            setCurrentTrackIndex={setCurrentTrackIndex}
           />
         </GridItem>
       </Grid>

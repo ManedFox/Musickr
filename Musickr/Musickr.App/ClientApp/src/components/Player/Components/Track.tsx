@@ -8,11 +8,17 @@ import {BsFillChatLeftFill, BsFillHeartFill, BsFillPeopleFill, BsFillPlayFill, B
 import {useTranslation} from "react-i18next";
 
 type TrackProps = {
-  track: TrackType
+  track: TrackType;
+  index: number;
+  isSelected: boolean;
+  setCurrentTrackIndex: (value: number) => void;
 };
 
 const Track = ({
- track
+  track,
+  index,
+  isSelected,
+  setCurrentTrackIndex
 }: TrackProps) => {
 
   const { t } = useTranslation();
@@ -20,7 +26,7 @@ const Track = ({
   return (
     <Box aspectRatio="3.8" w='90%'>
       <Flex h='76%' w='100%' alignItems='center'>
-        <Album image={track.image} />
+        <Album image={track.image} index={index} isSelected={isSelected} setCurrentTrackIndex={setCurrentTrackIndex}/>
         <VStack h="90%" w="100%" spacing='0' align='left'>
           <Flex w='100%' h='15%' alignItems='center' paddingLeft='5%'>
             <Title isArtist label={track.author} link={track.url} />

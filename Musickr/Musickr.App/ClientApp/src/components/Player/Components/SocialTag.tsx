@@ -4,10 +4,10 @@ import {IconType} from "react-icons";
 import i18next from "i18next";
 
 type SocialTagProps = {
-  icon:    IconType,
-  number?: number,
-  label:   string,
-  link?:   string,
+  icon:    IconType;
+  number?: number;
+  label:   string;
+  link?:   string;
 }
 
 const SocialTag = ({

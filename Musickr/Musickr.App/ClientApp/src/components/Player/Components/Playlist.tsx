@@ -7,11 +7,15 @@ import {createSearchParams, useNavigate} from "react-router-dom";
 import {StringParam, useQueryParam} from "use-query-params";
 
 type PlaylistProps = {
-  tracks: TrackType[]
+  tracks: TrackType[];
+  currentTrackIndex: number;
+  setCurrentTrackIndex: (value: number) => void;
 };
 
 const Playlist = ({
-  tracks
+  tracks,
+  currentTrackIndex,
+  setCurrentTrackIndex
 }: PlaylistProps) => {
   
   const [place, setPlace] = useQueryParam("place", StringParam);
@@ -54,8 +58,14 @@ const Playlist = ({
       </VStack>
       <Divider w="90%" />
       <VStack w="100%" spacing="0" overflowX={"hidden"} overflowY={"scroll"} paddingTop="15px">
-        {tracks.map((track) => (
-          <Track key={track.url} track={track}/>
+        {tracks.map((track, index) => (
+          <Track
+            key={track.url}
+            track={track}
+            index={index}
+            isSelected={currentTrackIndex==index}
+            setCurrentTrackIndex={setCurrentTrackIndex}
+          />
         ))}
       </VStack>
       <Divider w="90%" />

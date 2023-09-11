@@ -5,14 +5,22 @@ import {GiMusicalNotes} from "react-icons/gi";
 import {useTranslation} from "react-i18next";
 
 type AlbumProps = {
-  image?: string
+  image?: string;
+  index: number;
+  isSelected: boolean;
+  setCurrentTrackIndex: (value: number) => void;
 };
 
 const Album = ({
-  image
+  image,
+  index,
+  isSelected,
+  setCurrentTrackIndex
 }: AlbumProps) => {
   
   const { t } = useTranslation();
+
+  const play = () => setCurrentTrackIndex(index);
 
   return (    
     <Tooltip
@@ -21,8 +29,9 @@ const Album = ({
     >
       <Box
         as='button'
+        onClick={play}
         h='100%'
-        aspectRatio="1"
+        aspectRatio={isSelected?"1.15":"1"}
         transition="100ms"
         _hover={{
           aspectRatio: "1.15",
@@ -52,11 +61,12 @@ const Album = ({
           top="-5%"
           transition="150ms"
           position="relative"
-          left="0%"
+          left={isSelected?"20%":"0%"}
         />
         {image?
           <Image
             className={"album"}
+            boxShadow={isSelected?"10px 0 10px -10px black":""}
             src={image}
             h="100%"
             aspectRatio="1"
@@ -68,6 +78,7 @@ const Album = ({
         : 
           <Center
             className={"album"}
+            boxShadow={isSelected?"10px 0 10px -10px black":""}
             h="100%"
             aspectRatio="1"
             bg="white"
