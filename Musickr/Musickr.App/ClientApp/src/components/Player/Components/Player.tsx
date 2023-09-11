@@ -131,6 +131,7 @@ const Player = ({
           step={1}
           min={0}
           max={100}
+          focusThumbOnChange={false}
           onChange={handleSliderChange}
           onChangeEnd={handleSliderChangeEnd}
         >

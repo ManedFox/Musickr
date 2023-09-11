@@ -5,14 +5,9 @@ export type Track = {
   author: string;
   title: string;
   url: string;
-  image: string;     // (NEEDED) album image (must be a square picture)
-  duration: number;  // (unused) track's duration in seconds
-  plays: number;     // (unused) number of plays
-  likes: number;     // (unused)
-  reposts: number;   // (unused)
-  comments: number;  // (unused)
-  followers: number; // (unused)
-  tags: string[];    // (NEEDED) music genre tags
+  artworkUrl: string;
+  genre: string;
+  tags: string[];
 };
 
 const useGetTracks = (
