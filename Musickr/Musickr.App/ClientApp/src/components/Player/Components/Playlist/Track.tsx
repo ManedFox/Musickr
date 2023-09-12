@@ -1,6 +1,9 @@
 import React from 'react';
+
 import {Box, Flex, VStack} from '@chakra-ui/react';
+
 import {useTranslation} from 'react-i18next';
+
 import type {Track as TrackType} from '../../../Utils/Hooks/useGetTracks';
 import Album from './Album';
 import Title from './Title';

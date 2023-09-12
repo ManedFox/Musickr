@@ -1,8 +1,18 @@
 import React from 'react';
-import {Box, Center, Image, Tooltip} from '@chakra-ui/react';
-import {useTranslation} from 'react-i18next';
-import {FaPlay, FaRecordVinyl} from 'react-icons/fa';
+
+import {
+  Box, 
+  Center, 
+  Image, 
+  Tooltip
+} from '@chakra-ui/react';
+import {
+  FaPlay, 
+  FaRecordVinyl
+} from 'react-icons/fa';
 import {GiMusicalNotes} from 'react-icons/gi';
+
+import {useTranslation} from 'react-i18next';
 
 type AlbumProps = {
   artworkUrl?: string;

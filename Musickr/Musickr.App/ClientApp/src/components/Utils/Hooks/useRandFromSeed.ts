@@ -1,5 +1,3 @@
-
-
 const useRandFromSeed = (
   seed: string
 ) => {
