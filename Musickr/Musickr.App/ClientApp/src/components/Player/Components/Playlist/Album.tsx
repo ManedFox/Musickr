@@ -5,14 +5,14 @@ import {FaPlay, FaRecordVinyl} from 'react-icons/fa';
 import {GiMusicalNotes} from 'react-icons/gi';
 
 type AlbumProps = {
-  image?: string;
+  artworkUrl?: string;
   index: number;
   isSelected: boolean;
   setCurrentTrackIndex: (value: number) => void;
 };
 
 const Album = ({
-  image,
+  artworkUrl,
   index,
   isSelected,
   setCurrentTrackIndex
@@ -63,11 +63,11 @@ const Album = ({
           position='relative'
           left={isSelected ? '20%' : '0%'}
         />
-        {image?
+        {artworkUrl?
           <Image
             className='album'
             boxShadow={isSelected ? '10px 0 10px -10px black' : ''}
-            src={image}
+            src={artworkUrl}
             h='100%'
             aspectRatio='1'
             position='relative'

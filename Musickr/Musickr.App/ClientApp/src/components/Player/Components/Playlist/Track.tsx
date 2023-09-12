@@ -4,6 +4,7 @@ import {useTranslation} from 'react-i18next';
 import type {Track as TrackType} from '../../../Utils/Hooks/useGetTracks';
 import Album from './Album';
 import Title from './Title';
+import GenreTag from "./GenreTag";
 
 type TrackProps = {
   track: TrackType;
@@ -29,16 +30,15 @@ const Track = ({
       <Flex
         h='76%'
         w='100%'
-        alignItems='center'
       >
-        <Album 
-          image={track.artworkUrl} 
+        <Album
+          artworkUrl={track.artworkUrl} 
           index={index} 
           isSelected={isSelected} 
           setCurrentTrackIndex={setCurrentTrackIndex}
         />
         <VStack
-          h='90%'
+          h='80%'
           w='100%'
           spacing='0'
           align='left'
@@ -65,6 +65,13 @@ const Track = ({
               label={track.title}
               link={track.url}
             />
+          </Flex>
+          <Flex
+            w='100%'
+            h='10%'
+            paddingLeft='5%'
+          >
+            <GenreTag label={track.genre}/>
           </Flex>
         </VStack>
       </Flex>

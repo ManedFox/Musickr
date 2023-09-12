@@ -31,6 +31,8 @@ const Playlist = ({
   },
   [navigate]);
   
+  
+  
   return (
     <VStack
       bgColor='white'

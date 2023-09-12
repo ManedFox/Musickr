@@ -27,7 +27,7 @@ const SocialTag = ({
     simplifiedNumber = number >= 100 ? simplifiedNumber : simplifiedNumber.split('.')[0];
     simplifiedNumber += number >= 1000000 ? 'M' : (number >= 1000 ? 'K' : '');
     
-    return simplifiedNumber
+    return simplifiedNumber;
     
   }, 
   [number]
@@ -49,10 +49,8 @@ const SocialTag = ({
               <Link href={link}>
                 {simplifiedNumber}
               </Link> 
-            : 
-              <Text>
-                {simplifiedNumber}
-              </Text>
+            :
+              {simplifiedNumber}
             }
           </TagLabel>
         </Tag>
