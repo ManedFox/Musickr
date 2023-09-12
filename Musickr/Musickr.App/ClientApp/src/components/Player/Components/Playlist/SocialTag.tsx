@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {Link, Tag, TagLabel, TagLeftIcon, Tooltip} from '@chakra-ui/react';
+import {Link, Tag, TagLabel, TagLeftIcon, Tooltip, Text} from '@chakra-ui/react';
 import i18next from 'i18next';
 import {IconType} from 'react-icons';
 
