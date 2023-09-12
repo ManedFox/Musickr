@@ -28,12 +28,14 @@ import {Track} from "../../Utils/Hooks/useGetTracks";
 
 type PlayerProps = {
   tracks: Track[];
+  genre: string;
   currentTrackIndex: number;
   onCurrentTrackIndexUpdated: (value: number) => void;
 };
 
 const Player = ({
   tracks,
+  genre,
   currentTrackIndex,
   onCurrentTrackIndexUpdated
 } : PlayerProps) => {
@@ -49,18 +51,42 @@ const Player = ({
   }, [tracks, currentTrackIndex]);
   
   const handleNextTrack = useCallback(() => {
-    const newIndex = currentTrackIndex + 1 > tracks.length ? 
-      0 : 
-      currentTrackIndex + 1;
+    let newIndex: number = 0;
+    if(genre) {
+      for (let i = 0; i < tracks.length; i++) {
+        if (tracks[i].genre == genre) {
+          newIndex = i;
+          break;
+        }
+      }
+    }
+    for (let i = currentTrackIndex + 1; i < tracks.length; i++) {
+      if (!genre || tracks[i].genre == genre) {
+        newIndex = i;
+        break;
+      }
+    }
 
     onCurrentTrackIndexUpdated(newIndex);
   }, 
   [onCurrentTrackIndexUpdated, currentTrackIndex]);
 
   const handlePreviousTrack = useCallback(() => {
-    const newIndex = currentTrackIndex - 1 < 0 ?
-      0 :
-      currentTrackIndex - 1;
+      let newIndex: number = 0;
+      if(genre) {
+        for (let i = 0; i < tracks.length; i++) {
+          if (tracks[i].genre == genre) {
+            newIndex = i;
+            break;
+          }
+        }
+      }
+      for (let i = currentTrackIndex - 1; i > 0; i--) {
+        if (!genre || tracks[i].genre == genre) {
+          newIndex = i;
+          break;
+        }
+      }
 
     onCurrentTrackIndexUpdated(newIndex);
   },
