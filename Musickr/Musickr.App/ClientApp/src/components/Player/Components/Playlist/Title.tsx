@@ -13,40 +13,28 @@ const Title = ({
   link
 }: TitleProps) => {
 
+  const transitionDuration = isArtist ? "100ms" : "50ms";
+  const fontColor = isArtist ? "gray:400" : "gray:600";
+  const fontSize = isArtist ? "xs" : "md";
+
   return (
     <Tooltip
       label={label}
       openDelay={500}
     >
-      {isArtist?
-        <Link
-          href={link}
-          noOfLines={1}
-          fontSize='xs'
-          color='gray.400'
-          transitionDuration='100ms'
-          _hover={{
-            color: 'gray.800',
-            textDecoration: ''
-          }}
-        >
-          {label}
-        </Link>
-      :
-        <Link
-          href={link}
-          noOfLines={1}
-          fontSize='md'
-          color='gray.600'
-          transitionDuration='50ms'
-          _hover={{
-            color: 'gray.800',
-            textDecoration: ''
-          }}
-        >
-          {label}
-        </Link>
-      }
+      <Link
+        href={link}
+        noOfLines={1}
+        fontSize={fontSize}
+        color={fontColor}
+        transitionDuration={transitionDuration}
+        _hover={{
+          color: 'gray.800',
+          textDecoration: ''
+        }}
+      >
+        {label}
+      </Link>
     </Tooltip>
   )
   
