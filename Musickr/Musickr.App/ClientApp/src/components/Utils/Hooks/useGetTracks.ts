@@ -5,6 +5,9 @@ export type Track = {
   author: string;
   title: string;
   url: string;
+  artworkUrl: string;
+  genre: string;
+  tags: string[];
 };
 
 const useGetTracks = (

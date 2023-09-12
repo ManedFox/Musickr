@@ -9,6 +9,7 @@ import useGetTracks from "../../Utils/Hooks/useGetTracks";
 import useGetPhotos from "../../Utils/Hooks/useGetPhotos";
 import Player from "../Components/Player";
 import ImageSlider from "../Components/ImageSlider";
+import Playlist from "../Components//Playlist/Playlist";
 
 const PlayerPage = () => {
   const [place, setPlace] = useQueryParam("place", StringParam);
@@ -47,7 +48,7 @@ const PlayerPage = () => {
       <Grid
         templateAreas={`"image playlist" "player playlist"`}
         gridTemplateRows="1fr 150px"
-        gridTemplateColumns="1fr 300px"
+        gridTemplateColumns="1fr 400px"
         w="full"
         backdropFilter="blur(10px)"
       >
@@ -73,9 +74,12 @@ const PlayerPage = () => {
         </GridItem>
         <GridItem 
           area="playlist"
-          bgColor="yellow"
         >
-          PLAYLIST
+          <Playlist
+            tracks={tracksData}
+            currentTrackIndex={currentTrackIndex}
+            setCurrentTrackIndex={setCurrentTrackIndex}
+          />
         </GridItem>
       </Grid>
       
