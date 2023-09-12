@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {Box, Divider, Flex, Heading, VStack} from '@chakra-ui/react';
+import React, {useCallback} from 'react';
+import {Divider, Flex, Heading, VStack} from '@chakra-ui/react';
 import {createSearchParams, useNavigate} from 'react-router-dom';
 import {StringParam, useQueryParam} from 'use-query-params';
 import type {Track as TrackType} from '../../../Utils/Hooks/useGetTracks';
