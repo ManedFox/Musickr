@@ -11,13 +11,15 @@ type TrackProps = {
   index: number;
   isSelected: boolean;
   setCurrentTrackIndex: (value: number) => void;
+  setGenre?: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Track = ({
   track,
   index,
   isSelected,
-  setCurrentTrackIndex
+  setCurrentTrackIndex,
+  setGenre
 }: TrackProps) => {
 
   const { t } = useTranslation();
@@ -71,7 +73,10 @@ const Track = ({
             h='10%'
             paddingLeft='5%'
           >
-            <GenreTag label={track.genre}/>
+            <GenreTag
+              label={track.genre}
+              setGenre={setGenre}
+            />
           </Flex>
         </VStack>
       </Flex>
