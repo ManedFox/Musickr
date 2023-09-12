@@ -10,18 +10,14 @@ import GenreTag from "./GenreTag";
 
 type PlaylistProps = {
   tracks: TrackType[];
-  genre: string;
-  setGenre: React.Dispatch<React.SetStateAction<string>>;
   currentTrackIndex: number;
   setCurrentTrackIndex: (value: number) => void;
 };
 
 const Playlist = ({
   tracks,
-  genre,
-  setGenre,
   currentTrackIndex,
-  setCurrentTrackIndex,
+  setCurrentTrackIndex
 }: PlaylistProps) => {
   
   const [place, setPlace] = useQueryParam('place', StringParam);
@@ -36,6 +32,8 @@ const Playlist = ({
     })
   },
   [navigate]);
+  
+  let [genre, setGenre] = useState('');
   
   let GenreHue = useRandomByteFromSeed(genre) % 360;
   

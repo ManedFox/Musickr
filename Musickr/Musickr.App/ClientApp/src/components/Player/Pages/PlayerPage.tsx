@@ -14,8 +14,6 @@ import Playlist from "../Components//Playlist/Playlist";
 const PlayerPage = () => {
   const [place, setPlace] = useQueryParam("place", StringParam);
   
-  const [genre, setGenre] = useState('');
-  
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
@@ -70,7 +68,6 @@ const PlayerPage = () => {
         >
           <Player
             tracks={tracksData}
-            genre={genre}
             currentTrackIndex={currentTrackIndex}
             onCurrentTrackIndexUpdated={setCurrentTrackIndex}
           />
@@ -80,8 +77,6 @@ const PlayerPage = () => {
         >
           <Playlist
             tracks={tracksData}
-            genre={genre}
-            setGenre={setGenre}
             currentTrackIndex={currentTrackIndex}
             setCurrentTrackIndex={setCurrentTrackIndex}
           />

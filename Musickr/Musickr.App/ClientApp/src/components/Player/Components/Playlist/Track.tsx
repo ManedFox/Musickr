@@ -34,9 +34,9 @@ const Track = ({
         w='100%'
       >
         <Album
-          artworkUrl={track.artworkUrl}
-          index={index}
-          isSelected={isSelected}
+          artworkUrl={track.artworkUrl} 
+          index={index} 
+          isSelected={isSelected} 
           setCurrentTrackIndex={setCurrentTrackIndex}
         />
         <VStack
@@ -76,8 +76,6 @@ const Track = ({
             <GenreTag
               label={track.genre}
               setGenre={setGenre}
-              index={index}
-              setCurrentTrackIndex={setCurrentTrackIndex}
             />
           </Flex>
         </VStack>

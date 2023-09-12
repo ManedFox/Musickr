@@ -7,16 +7,12 @@ import useRandomByteFromSeed from "../../../Utils/Hooks/useRandFromSeed";
 type GenreTagProps = {
   label?: string;
   setGenre?: React.Dispatch<React.SetStateAction<string>>;
-  index?: number;
-  setCurrentTrackIndex?: (value: number) => void;
   isSelector?: boolean;
 }
 
 const GenreTag = ({
   label,
   setGenre,
-  index,
-  setCurrentTrackIndex,
   isSelector
 }: GenreTagProps) => {
 
@@ -26,10 +22,7 @@ const GenreTag = ({
     return null;
   }
 
-  const changeGenre = isSelector ?
-    () => setGenre(label) :
-    () => { setGenre(label) ; setCurrentTrackIndex(index) };
-
+  const changeGenre = () => setGenre(label);
   const removeGenre = () => setGenre('');
 
   return (
