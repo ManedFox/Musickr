@@ -13,8 +13,9 @@ import {
 } from "@choc-ui/chakra-autocomplete";
 
 import {useDebounce} from "react-use";
+import {useTranslation} from "react-i18next";
 
-import useGetUsersAndPlaces from "../../Utils/Hooks/useGetUsersAndPlaces";
+import useGetSearch from "../../Utils/Hooks/useGetSearch";
 
 type SearchBarProps = {
   defaultValue?: string;
@@ -25,6 +26,8 @@ const SearchBar = ({
   onChange,
   defaultValue = ""
 } : SearchBarProps) => {
+  const { t } = useTranslation();
+  
   const [searchContent, setSearchContent] = useState(defaultValue);
   const [searchContentDebounced, setSearchContentDebounced] = useState("");
   
@@ -40,11 +43,19 @@ const SearchBar = ({
     [searchContent]
   );
   
-  const { isLoading, data } = useGetUsersAndPlaces(searchContentDebounced);
+  const { isLoading, data } = useGetSearch(searchContentDebounced);
   
   return (
     <AutoComplete 
       openOnFocus 
+      emptyState={(
+        <Text 
+          fontWeight="bold" 
+          p="4"
+        >
+          {t("searchPage.searchBar.emptyState")}
+        </Text>
+      )}
       isLoading={isLoading}
       onChange={onChange}
     >
@@ -52,7 +63,7 @@ const SearchBar = ({
         variant="filled"
         h="12"
         w="lg"
-        placeholder="Search a place..."
+        placeholder={t("searchPage.searchBar.placeholder")}
         value={searchContent}
         onChange={handleInput}
       />

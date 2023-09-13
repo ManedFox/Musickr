@@ -1,0 +1,31 @@
+{
+  "searchPage" : {
+    "about" : {
+      "tooltip" : "About Musickr",
+      "modalTitle": "About Musickr",
+      "createdBy": "Created by T.Ferreira and Marobax",
+      "githubLink": "GitHub project link"
+    },
+    "searchBar" : {
+      "placeholder": "Search a city...",
+      "emptyState": "No city found"
+    }
+  },
+  "playerPage": {
+    "imageSlider": {
+      "emptyState": "No photos found",
+      "author": "By {{author}}"
+    },
+    "player": {
+      "emptyState": "No musics found"
+    },
+    "playlist": {
+      "play": "Play",
+      "plays": "plays",
+      "likes": "likes",
+      "reposts": "reposts",
+      "comments": "comments",
+      "followers": "followers"
+    }
+  }
+}

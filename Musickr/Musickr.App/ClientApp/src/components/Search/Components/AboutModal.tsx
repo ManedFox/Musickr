@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Link,
   Modal, ModalBody, ModalCloseButton,
@@ -9,7 +10,11 @@ import {
 } from "@chakra-ui/react";
 import {ExternalLinkIcon} from "@chakra-ui/icons";
 
+import {useTranslation} from "react-i18next";
+
 const AboutModal = (props: Omit<ModalProps, "children">) => {
+  const { t } = useTranslation();
+  
   return (
     <Modal
       isCentered={true}
@@ -18,19 +23,20 @@ const AboutModal = (props: Omit<ModalProps, "children">) => {
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
-          About Musickr
+          {t("searchPage.about.modalTitle")}
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <VStack my="4">
             <Text>
-              Created by T.Ferreira and Marobax
+              {t("searchPage.about.createdBy")}
             </Text>
             <Link 
               href="https://github.com/ManedFox/Musickr"
               isExternal
             >
-              GitHub link <ExternalLinkIcon mx="2" />
+              {t("searchPage.about.githubLink")} 
+              <ExternalLinkIcon mx="2" />
             </Link>
           </VStack>
         </ModalBody>
