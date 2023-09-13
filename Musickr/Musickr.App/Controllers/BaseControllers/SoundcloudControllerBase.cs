@@ -9,7 +9,7 @@ public abstract class SoundcloudControllerBase : ControllerBase
 {
     public IConfiguration _configuration;
     
-    public string? ClientId => _configuration["ClientId"];
+    public string? ClientId => _configuration["SoundcloudClientId"];
 
     public SoundcloudControllerBase(IConfiguration config)
     {
