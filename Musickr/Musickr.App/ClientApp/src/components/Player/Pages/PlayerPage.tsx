@@ -34,14 +34,14 @@ const PlayerPage = () => {
     )
   }
   
-  const firstPhoto = photosData[currentPhotoIndex];
+  const currentPhoto = photosData[currentPhotoIndex];
 
   return (
     <PageContent 
       justify="stretch" 
       alignItems="stretch"
       p="0"
-      bgImage={`url('${firstPhoto?.url}')`}
+      bgImage={`url('${currentPhoto?.url}')`}
       bgSize="cover"
     >
       <Grid
