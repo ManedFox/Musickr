@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import {Grid, GridItem, Spinner} from "@chakra-ui/react";
 
-import {NumberParam, StringParam, useQueryParam} from "use-query-params";
+import {StringParam, useQueryParam} from "use-query-params";
 
 import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
