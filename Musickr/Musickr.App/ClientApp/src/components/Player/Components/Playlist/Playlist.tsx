@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import {Divider, Heading, VStack} from '@chakra-ui/react';
 
 import {createSearchParams, useNavigate} from 'react-router-dom';
-import {StringParam, useQueryParam} from 'use-query-params';
+import {NumberParam, StringParam, useQueryParam} from 'use-query-params';
 
 import type {Track as TrackType} from '../../../Utils/Hooks/useGetTracks';
 import SearchBar from '../../../Search/Components/SearchBar';
@@ -11,16 +11,12 @@ import Track from './Track';
 
 type PlaylistProps = {
   tracks: TrackType[];
-  currentTrackIndex: number;
-  setCurrentTrackIndex: (value: number) => void;
 };
 
 const Playlist = ({
-  tracks,
-  currentTrackIndex,
-  setCurrentTrackIndex
+  tracks
 }: PlaylistProps) => {
-  
+  const [currentTrackIndex = 0, setCurrentTrackIndex] = useQueryParam("currentTrackIndex", NumberParam);
   const [place, setPlace] = useQueryParam('place', StringParam);
   
   const navigate = useNavigate();
@@ -33,8 +29,6 @@ const Playlist = ({
     })
   },
   [navigate]);
-  
-  
   
   return (
     <VStack
@@ -77,8 +71,7 @@ const Playlist = ({
             key={track.url}
             track={track}
             index={index}
-            isSelected={currentTrackIndex==index}
-            setCurrentTrackIndex={setCurrentTrackIndex}
+            isSelected={currentTrackIndex === index}
           />
         ))}
       </VStack>

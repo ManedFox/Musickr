@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import {Grid, GridItem, Spinner} from "@chakra-ui/react";
 
-import {StringParam, useQueryParam} from "use-query-params";
+import {NumberParam, StringParam, useQueryParam} from "use-query-params";
 
 import PageContent from "../../Utils/PageContent";
 import useGetTracks from "../../Utils/Hooks/useGetTracks";
@@ -14,9 +14,8 @@ import Playlist from "../Components//Playlist/Playlist";
 const PlayerPage = () => {
   const [place, setPlace] = useQueryParam("place", StringParam);
   
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-
+  
   const { 
     isLoading : isTracksLoading, 
     data : tracksData 
@@ -68,8 +67,6 @@ const PlayerPage = () => {
         >
           <Player
             tracks={tracksData}
-            currentTrackIndex={currentTrackIndex}
-            onCurrentTrackIndexUpdated={setCurrentTrackIndex}
           />
         </GridItem>
         <GridItem 
@@ -77,8 +74,6 @@ const PlayerPage = () => {
         >
           <Playlist
             tracks={tracksData}
-            currentTrackIndex={currentTrackIndex}
-            setCurrentTrackIndex={setCurrentTrackIndex}
           />
         </GridItem>
       </Grid>

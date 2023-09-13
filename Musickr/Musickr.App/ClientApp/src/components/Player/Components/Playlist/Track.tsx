@@ -3,6 +3,7 @@ import React from 'react';
 import {Box, Flex, VStack} from '@chakra-ui/react';
 
 import {useTranslation} from 'react-i18next';
+import {NumberParam, useQueryParam} from "use-query-params";
 
 import type {Track as TrackType} from '../../../Utils/Hooks/useGetTracks';
 import Album from './Album';
@@ -13,15 +14,14 @@ type TrackProps = {
   track: TrackType;
   index: number;
   isSelected: boolean;
-  setCurrentTrackIndex: (value: number) => void;
 };
 
 const Track = ({
   track,
   index,
-  isSelected,
-  setCurrentTrackIndex
+  isSelected
 }: TrackProps) => {
+  const [currentTrackIndex = 0, setCurrentTrackIndex] = useQueryParam("currentTrackIndex", NumberParam);
 
   const { t } = useTranslation();
 

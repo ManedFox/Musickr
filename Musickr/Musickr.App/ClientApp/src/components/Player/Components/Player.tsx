@@ -23,20 +23,19 @@ import {FaBackwardStep, FaForwardStep} from "react-icons/fa6";
 
 import ReactPlayer from "react-player";
 import {useTranslation} from "react-i18next";
+import {NumberParam, useQueryParam} from "use-query-params";
 
 import {Track} from "../../Utils/Hooks/useGetTracks";
 
 type PlayerProps = {
   tracks: Track[];
-  currentTrackIndex: number;
-  onCurrentTrackIndexUpdated: (value: number) => void;
 };
 
 const Player = ({
-  tracks,
-  currentTrackIndex,
-  onCurrentTrackIndexUpdated
+  tracks
 } : PlayerProps) => {
+  const [currentTrackIndex = 0, setCurrentTrackIndex] = useQueryParam("currentTrackIndex", NumberParam);
+  
   const { t } = useTranslation();
   
   const player = useRef<ReactPlayer>(null);
@@ -44,27 +43,25 @@ const Player = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackProgress, setTrackProgress] = useState(0);
 
-  const currentTrack = useMemo(() => {
-    return tracks[currentTrackIndex];
-  }, [tracks, currentTrackIndex]);
+  const currentTrack = tracks[currentTrackIndex];
   
   const handleNextTrack = useCallback(() => {
     const newIndex = currentTrackIndex + 1 > tracks.length ? 
       0 : 
       currentTrackIndex + 1;
 
-    onCurrentTrackIndexUpdated(newIndex);
+      setCurrentTrackIndex(newIndex);
   }, 
-  [onCurrentTrackIndexUpdated, currentTrackIndex]);
+  [setCurrentTrackIndex, currentTrackIndex]);
 
   const handlePreviousTrack = useCallback(() => {
     const newIndex = currentTrackIndex - 1 < 0 ?
       0 :
       currentTrackIndex - 1;
 
-    onCurrentTrackIndexUpdated(newIndex);
+      setCurrentTrackIndex(newIndex);
   },
-  [onCurrentTrackIndexUpdated, currentTrackIndex]);
+  [setCurrentTrackIndex, currentTrackIndex]);
 
   const handlePlay = () => setIsPlaying(!isPlaying);
   
@@ -106,6 +103,7 @@ const Player = ({
     <Flex
       h="full"
       p="4"
+      mx="12"
       bgColor="gray.100"
       borderRadius="xl"
       alignItems="center"

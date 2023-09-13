@@ -38,9 +38,7 @@ const ImageSlider = ({
   
   const [currentAnimation, setCurrentAnimation] = useState("slideIn");
   
-  const currentPhoto = useMemo(() => {
-    return photos[currentPhotoIndex];
-  }, [photos, currentPhotoIndex]);
+  const currentPhoto = photos[currentPhotoIndex];
 
   const animationVariants = {
     slideIn: {
