@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.HttpOverrides;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+// For reverse proxy
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
