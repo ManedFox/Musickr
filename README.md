@@ -4,6 +4,8 @@ Musickr is a Web App that lets you listen to and watch the creations of authors 
 
 The application is based on ASP.NET Core (C#) and ReactJS (TypeScript).
 
+You can try here: https://musickr.equipemelies.com/
+
 ## Start the app
 
 Firstly, you need to install .NET 7 and NodeJS v18.
